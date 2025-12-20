@@ -1,0 +1,1990 @@
+    "overwrite": true,
+    "fast": true,
+    "start_profile_step": 3,
+    "end_profile_step": 5,
+    "tuner_type": "gridsearch",
+    "tuner_early_stopping": 5,
+    "tuner_num_trials": 50,
+    "model_info_path": null,
+    "mp_size": 1,
+    "max_train_batch_size": null,
+    "min_train_batch_size": 1,
+    "max_train_micro_batch_size_per_gpu": 1.024000e+03,
+    "min_train_micro_batch_size_per_gpu": 1,
+    "num_tuning_micro_batch_sizes": 3
+}
+[2025-07-02 20:20:22,444] [INFO] [config.py:1003:print]   bfloat16_enabled ............. True
+[2025-07-02 20:20:22,444] [INFO] [config.py:1003:print]   bfloat16_immediate_grad_update  False
+[2025-07-02 20:20:22,444] [INFO] [config.py:1003:print]   checkpoint_parallel_write_pipeline  False
+[2025-07-02 20:20:22,444] [INFO] [config.py:1003:print]   checkpoint_tag_validation_enabled  True
+[2025-07-02 20:20:22,444] [INFO] [config.py:1003:print]   checkpoint_tag_validation_fail  False
+[2025-07-02 20:20:22,444] [INFO] [config.py:1003:print]   comms_config ................. <deepspeed.comm.config.DeepSpeedCommsConfig object at
+0x7fa21b7ac110>
+[2025-07-02 20:20:22,444] [INFO] [config.py:1003:print]   communication_data_type ...... None
+[2025-07-02 20:20:22,444] [INFO] [config.py:1003:print]   compression_config ........... {'weight_quantization': {'shared_parameters': {'enable
+d': False, 'quantizer_kernel': False, 'schedule_offset': 0, 'quantize_groups': 1, 'quantize_verbose': False, 'quantization_type': 'symmetric',
+'quantize_weight_in_forward': False, 'rounding': 'nearest', 'fp16_mixed_quantize': False, 'quantize_change_ratio': 0.001}, 'different_groups':
+{}}, 'activation_quantization': {'shared_parameters': {'enabled': False, 'quantization_type': 'symmetric', 'range_calibration': 'dynamic', 'sch
+edule_offset': 1000}, 'different_groups': {}}, 'sparse_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 10
+00}, 'different_groups': {}}, 'row_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_grou
+ps': {}}, 'head_pruning': {'shared_parameters': {'enabled': False, 'method': 'topk', 'schedule_offset': 1000}, 'different_groups': {}}, 'channe
+l_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'layer_reduction': {'en
+abled': False}}
+[2025-07-02 20:20:22,444] [INFO] [config.py:1003:print]   curriculum_enabled_legacy .... False
+[2025-07-02 20:20:22,444] [INFO] [config.py:1003:print]   curriculum_params_legacy ..... False
+[2025-07-02 20:20:22,445] [INFO] [config.py:1003:print]   data_efficiency_config ....... {'enabled': False, 'seed': 1234, 'data_sampling': {'en
+abled': False, 'num_epochs': 1000, 'num_workers': 0, 'curriculum_learning': {'enabled': False}}, 'data_routing': {'enabled': False, 'random_ltd
+': {'enabled': False, 'layer_token_lr_schedule': {'enabled': False}}}}
+[2025-07-02 20:20:22,445] [INFO] [config.py:1003:print]   data_efficiency_enabled ...... False
+[2025-07-02 20:20:22,445] [INFO] [config.py:1003:print]   dataloader_drop_last ......... False
+[2025-07-02 20:20:22,445] [INFO] [config.py:1003:print]   disable_allgather ............ False
+[2025-07-02 20:20:22,445] [INFO] [config.py:1003:print]   dump_state ................... False
+[2025-07-02 20:20:22,445] [INFO] [config.py:1003:print]   dynamic_loss_scale_args ...... None
+[2025-07-02 20:20:22,445] [INFO] [config.py:1003:print]   eigenvalue_enabled ........... False
+[2025-07-02 20:20:22,445] [INFO] [config.py:1003:print]   eigenvalue_gas_boundary_resolution  1
+[2025-07-02 20:20:22,445] [INFO] [config.py:1003:print]   eigenvalue_layer_name ........ bert.encoder.layer
+[2025-07-02 20:20:22,445] [INFO] [config.py:1003:print]   eigenvalue_layer_num ......... 0
+[2025-07-02 20:20:22,445] [INFO] [config.py:1003:print]   eigenvalue_max_iter .......... 100
+[2025-07-02 20:20:22,445] [INFO] [config.py:1003:print]   eigenvalue_stability ......... 1e-06
+[2025-07-02 20:20:22,445] [INFO] [config.py:1003:print]   eigenvalue_tol ............... 0.01
+[2025-07-02 20:20:22,445] [INFO] [config.py:1003:print]   eigenvalue_verbose ........... False
+[2025-07-02 20:20:22,446] [INFO] [config.py:1003:print]   elasticity_enabled ........... False
+[2025-07-02 20:20:22,446] [INFO] [config.py:1003:print]   flops_profiler_config ........ {
+    "enabled": false,
+    "recompute_fwd_factor": 0.0,
+    "profile_step": 1,
+    "module_depth": -1,
+    "top_modules": 1,
+    "detailed": true,
+    "output_file": null
+}
+[2025-07-02 20:20:22,446] [INFO] [config.py:1003:print]   fp16_auto_cast ............... None
+[2025-07-02 20:20:22,446] [INFO] [config.py:1003:print]   fp16_enabled ................. False
+[2025-07-02 20:20:22,446] [INFO] [config.py:1003:print]   fp16_master_weights_and_gradients  False
+[2025-07-02 20:20:22,446] [INFO] [config.py:1003:print]   global_rank .................. 0
+[2025-07-02 20:20:22,446] [INFO] [config.py:1003:print]   grad_accum_dtype ............. None
+[2025-07-02 20:20:22,446] [INFO] [config.py:1003:print]   gradient_accumulation_steps .. 2
+[2025-07-02 20:20:22,446] [INFO] [config.py:1003:print]   gradient_clipping ............ 0.0
+[2025-07-02 20:20:22,446] [INFO] [config.py:1003:print]   gradient_predivide_factor .... 1.0
+[2025-07-02 20:20:22,446] [INFO] [config.py:1003:print]   graph_harvesting ............. False
+[2025-07-02 20:20:22,446] [INFO] [config.py:1003:print]   hybrid_engine ................ enabled=False max_out_tokens=512 inference_tp_size=1 r
+elease_inference_cache=False pin_parameters=True tp_gather_partition_size=8
+[2025-07-02 20:20:22,446] [INFO] [config.py:1003:print]   initial_dynamic_scale ........ 1
+[2025-07-02 20:20:22,447] [INFO] [config.py:1003:print]   load_universal_checkpoint .... False
+[2025-07-02 20:20:22,447] [INFO] [config.py:1003:print]   loss_scale ................... 1.0
+[2025-07-02 20:20:22,447] [INFO] [config.py:1003:print]   memory_breakdown ............. False
+[2025-07-02 20:20:22,447] [INFO] [config.py:1003:print]   mics_hierarchial_params_gather  False
+[2025-07-02 20:20:22,447] [INFO] [config.py:1003:print]   mics_shard_size .............. -1
+[2025-07-02 20:20:22,447] [INFO] [config.py:1003:print]   monitor_config ............... tensorboard=TensorBoardConfig(enabled=False, output_pa
+th='', job_name='DeepSpeedJobName') comet=CometConfig(enabled=False, samples_log_interval=100, project=None, workspace=None, api_key=None, expe
+riment_name=None, experiment_key=None, online=None, mode=None) wandb=WandbConfig(enabled=False, group=None, team=None, project='deepspeed') csv
+_monitor=CSVConfig(enabled=False, output_path='', job_name='DeepSpeedJobName')
+[2025-07-02 20:20:22,447] [INFO] [config.py:1003:print]   nebula_config ................ {
+    "enabled": false,
+    "persistent_storage_path": null,
+    "persistent_time_interval": 100,
+    "num_of_version_in_retention": 2,
+    "enable_nebula_load": true,
+    "load_path": null
+}
+[2025-07-02 20:20:22,447] [INFO] [config.py:1003:print]   optimizer_legacy_fusion ...... False
+[2025-07-02 20:20:22,447] [INFO] [config.py:1003:print]   optimizer_name ............... None
+[2025-07-02 20:20:22,447] [INFO] [config.py:1003:print]   optimizer_params ............. None
+[2025-07-02 20:20:22,447] [INFO] [config.py:1003:print]   pipeline ..................... {'stages': 'auto', 'partition': 'best', 'seed_layers':
+ False, 'activation_checkpoint_interval': 0, 'pipe_partitioned': True, 'grad_partitioned': True}
+[2025-07-02 20:20:22,447] [INFO] [config.py:1003:print]   pld_enabled .................. False
+[2025-07-02 20:20:22,448] [INFO] [config.py:1003:print]   pld_params ................... False
+[2025-07-02 20:20:22,448] [INFO] [config.py:1003:print]   prescale_gradients ........... False
+[2025-07-02 20:20:22,448] [INFO] [config.py:1003:print]   scheduler_name ............... None
+[2025-07-02 20:20:22,448] [INFO] [config.py:1003:print]   scheduler_params ............. None
+[2025-07-02 20:20:22,448] [INFO] [config.py:1003:print]   seq_parallel_communication_data_type  torch.float32
+[2025-07-02 20:20:22,448] [INFO] [config.py:1003:print]   sparse_attention ............. None
+[2025-07-02 20:20:22,448] [INFO] [config.py:1003:print]   sparse_gradients_enabled ..... False
+[2025-07-02 20:20:22,448] [INFO] [config.py:1003:print]   steps_per_print .............. inf
+[2025-07-02 20:20:22,448] [INFO] [config.py:1003:print]   timers_config ................ enabled=True synchronized=True
+[2025-07-02 20:20:22,448] [INFO] [config.py:1003:print]   train_batch_size ............. 32
+[2025-07-02 20:20:22,448] [INFO] [config.py:1003:print]   train_micro_batch_size_per_gpu  4
+[2025-07-02 20:20:22,448] [INFO] [config.py:1003:print]   use_data_before_expert_parallel_  False
+[2025-07-02 20:20:22,448] [INFO] [config.py:1003:print]   use_node_local_storage ....... False
+[2025-07-02 20:20:22,448] [INFO] [config.py:1003:print]   wall_clock_breakdown ......... False
+[2025-07-02 20:20:22,449] [INFO] [config.py:1003:print]   weight_quantization_config ... None
+[2025-07-02 20:20:22,449] [INFO] [config.py:1003:print]   world_size ................... 4
+[2025-07-02 20:20:22,449] [INFO] [config.py:1003:print]   zero_allow_untested_optimizer  False
+[2025-07-02 20:20:22,449] [INFO] [config.py:1003:print]   zero_config .................. stage=3 contiguous_gradients=True reduce_scatter=True
+reduce_bucket_size=500000000 use_multi_rank_bucket_allreduce=True allgather_partitions=True allgather_bucket_size=500000000 overlap_comm=True l
+oad_from_fp32_weights=True elastic_checkpoint=False offload_param=DeepSpeedZeroOffloadParamConfig(device='none', nvme_path=None, buffer_count=5
+, buffer_size=100000000, max_in_cpu=1000000000, pin_memory=True) offload_optimizer=DeepSpeedZeroOffloadOptimizerConfig(device='none', nvme_path
+=None, buffer_count=4, pin_memory=True, pipeline_read=False, pipeline_write=False, fast_init=False, ratio=1.0) sub_group_size=1000000000 cpu_of
+fload_param=None cpu_offload_use_pin_memory=None cpu_offload=None prefetch_bucket_size=50000000 param_persistence_threshold=100000 model_persis
+tence_threshold=9223372036854775807 max_live_parameters=1000000000 max_reuse_distance=1000000000 gather_16bit_weights_on_model_save=True use_al
+l_reduce_for_fetch_params=False stage3_gather_fp16_weights_on_model_save=False ignore_unused_parameters=True legacy_stage1=False round_robin_gr
+adients=False zero_hpz_partition_size=1 zero_quantized_weights=False zero_quantized_nontrainable_weights=False zero_quantized_gradients=False m
+ics_shard_size=-1 mics_hierarchical_params_gather=False memory_efficient_linear=True pipeline_loading_checkpoint=False override_module_apply=Tr
+ue
+[2025-07-02 20:20:22,449] [INFO] [config.py:1003:print]   zero_enabled ................. True
+[2025-07-02 20:20:22,449] [INFO] [config.py:1003:print]   zero_force_ds_cpu_optimizer .. True
+[2025-07-02 20:20:22,449] [INFO] [config.py:1003:print]   zero_optimization_stage ...... 3
+[2025-07-02 20:20:22,449] [INFO] [config.py:989:print_user_config]   json = {
+    "zero_optimization": {
+        "stage": 3,
+        "offload_optimizer": {
+            "device": "none",
+            "pin_memory": true
+        },
+        "offload_param": {
+            "device": "none",
+            "pin_memory": true
+        },
+        "overlap_comm": true,
+        "contiguous_gradients": true,
+        "reduce_bucket_size": "auto",
+        "stage3_prefetch_bucket_size": "auto",
+        "stage3_param_persistence_threshold": "auto",
+        "sub_group_size": 1.000000e+09,
+        "stage3_max_live_parameters": 1.000000e+09,
+        "stage3_max_reuse_distance": 1.000000e+09,
+        "stage3_gather_16bit_weights_on_model_save": true
+    },
+    "train_batch_size": 32,
+    "train_micro_batch_size_per_gpu": 4,
+    "gradient_accumulation_steps": 2,
+    "bf16": {
+        "enabled": true
+    },
+    "steps_per_print": inf,
+    "fp16": {
+        "enabled": false
+    },
+    "zero_optimization.reduce_bucket_size": 1.677722e+07,
+    "zero_optimization.stage3_param_persistence_threshold": 4.096000e+04,
+    "zero_optimization.stage3_prefetch_bucket_size": 1.509949e+07
+}
+[2025-07-02 20:20:22,451][trainer][INFO] - NPO Trainer loaded, output_dir: ./saves/unlearn/easy_to_hard/prob/tofu_Llama-3.1-8B-Instruct_forget0
+1_NPO
+[2025-07-02 20:20:26,534] [WARNING] [engine.py:1232:_do_optimizer_sanity_check] **** You are using ZeRO with an untested optimizer, proceed wit
+h caution *****
+Parameter Offload: Total persistent parameters: 266240 in 65 params
+wandb: WARNING The `run_name` is currently set to the same value as `TrainingArguments.output_dir`. If this was not intended, please specify a
+different run name by setting the `TrainingArguments.run_name` parameter.
+  0%|                                                                                                                   | 0/10 [00:00<?, ?it/s]
+[2025-07-02 20:20:33,758][trainer.base][WARNING] - Custom evaluator can be run with this Trainer only when a single accelerator process is runn
+ing.
+[Curriculum]: Epoch 0 | Using 1/5 chunks | total samples: 8
+Training dataset updated at epoch 0
+`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+/home/public/jcheng2/miniconda3/envs/un/lib/python3.11/site-packages/torch/utils/checkpoint.py:295: FutureWarning: `torch.cpu.amp.autocast(args
+...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with torch.enable_grad(), device_autocast_ctx, torch.cpu.amp.autocast(**ctx.cpu_autocast_kwargs):  # type: ignore[attr-defined]
+/home/public/jcheng2/miniconda3/envs/un/lib/python3.11/site-packages/torch/utils/checkpoint.py:295: FutureWarning: `torch.cpu.amp.autocast(args
+...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with torch.enable_grad(), device_autocast_ctx, torch.cpu.amp.autocast(**ctx.cpu_autocast_kwargs):  # type: ignore[attr-defined]
+/home/public/jcheng2/miniconda3/envs/un/lib/python3.11/site-packages/torch/utils/checkpoint.py:295: FutureWarning: `torch.cpu.amp.autocast(args
+...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with torch.enable_grad(), device_autocast_ctx, torch.cpu.amp.autocast(**ctx.cpu_autocast_kwargs):  # type: ignore[attr-defined]
+/home/public/jcheng2/miniconda3/envs/un/lib/python3.11/site-packages/torch/utils/checkpoint.py:295: FutureWarning: `torch.cpu.amp.autocast(args
+...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with torch.enable_grad(), device_autocast_ctx, torch.cpu.amp.autocast(**ctx.cpu_autocast_kwargs):  # type: ignore[attr-defined]
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+[Curriculum]: Epoch 0 | Using 1/5 chunks | total samples: 8
+Training dataset updated at epoch 0
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+ 10%|██████████▋                                                                                                | 1/10 [00:26<03:59, 26.58s/it]
+[Curriculum]: Epoch 2 | Using 2/5 chunks | total samples: 16
+Training dataset updated at epoch 2.0
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+ 20%|█████████████████████▍                                                                                     | 2/10 [00:32<01:54, 14.31s/it]
+[Curriculum]: Epoch 3 | Using 2/5 chunks | total samples: 16
+Training dataset updated at epoch 3.0
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+ 30%|████████████████████████████████                                                                           | 3/10 [00:49<01:50, 15.77s/it]
+[Curriculum]: Epoch 4 | Using 3/5 chunks | total samples: 24
+Training dataset updated at epoch 4.0
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+ 40%|██████████████████████████████████████████▊                                                                | 4/10 [00:55<01:10, 11.77s/it]
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+{'loss': 7.9888, 'grad_norm': 123.9213371062366, 'learning_rate': 5.555555555555557e-06, 'epoch': 6.0}
+ 50%|█████████████████████████████████████████████████████▌                                                     | 5/10 [01:12<01:08, 13.76s/it]
+[Curriculum]: Epoch 6 | Using 4/5 chunks | total samples: 32
+Training dataset updated at epoch 6.0
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+ 60%|████████████████████████████████████████████████████████████████▏                                          | 6/10 [01:35<01:07, 16.82s/it]
+[Curriculum]: Epoch 6 | Using 4/5 chunks | total samples: 32
+Training dataset updated at epoch 6.0
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+ 70%|██████████████████████████████████████████████████████████████████████████▉                                | 7/10 [01:58<00:56, 18.86s/it]
+[Curriculum]: Epoch 7 | Using 4/5 chunks | total samples: 32
+Training dataset updated at epoch 7.0
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+ 80%|█████████████████████████████████████████████████████████████████████████████████████▌                     | 8/10 [02:21<00:40, 20.20s/it]
+[Curriculum]: Epoch 8 | Using 5/5 chunks | total samples: 40
+Training dataset updated at epoch 8.0
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+ 90%|████████████████████████████████████████████████████████████████████████████████████████████████▎          | 9/10 [02:44<00:21, 21.10s/it]
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+[Curriculum]: Epoch 9 | Using 5/5 chunks | total samples: 40
+Training dataset updated at epoch 9.0
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+{'loss': 3.8232, 'grad_norm': 57.2689680754896, 'learning_rate': 0.0, 'epoch': 9.33}
+{'train_runtime': 187.7468, 'train_samples_per_second': 2.131, 'train_steps_per_second': 0.053, 'train_loss': 5.906038665771485, 'epoch': 9.33}
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 10/10 [03:07<00:00, 18.76s/it]
+wandb:
+wandb: 🚀 View run tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-prob at: https://wandb.ai/jialicheng/Curriculum%20Unlearning/runs/tofu-
+forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-prob
+wandb: Find logs at: wandb/run-20250702_202001-tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-prob/logs
+wandb:
+wandb: 🚀 View run tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-prob at: https://wandb.ai/jialicheng/Curriculum%20Unlearning/runs/tofu-
+forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-prob
+wandb: Find logs at: wandb/run-20250702_202003-tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-prob/logs
+wandb:
+wandb: 🚀 View run tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-prob at: https://wandb.ai/jialicheng/Curriculum%20Unlearning/runs/tofu-
+forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-prob
+wandb: Find logs at: wandb/run-20250702_202003-tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-prob/logs
+[2025-07-02 20:24:06,164][trainer.base][WARNING] - Custom evaluator can be run with this Trainer only when a single accelerator process is runn
+ing.
+wandb:
+wandb: 🚀 View run tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-prob at: https://wandb.ai/jialicheng/Curriculum%20Unlearning/runs/tofu-
+forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-prob
+wandb: Find logs at: wandb/run-20250702_202005-tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-prob/logs
+easy_to_hard/prob/tofu_Llama-3.1-8B-Instruct_forget01_NPO Eval Not Found
+[2025-07-02 20:24:14,780] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Warning: The cache directory for DeepSpeed Triton autotune, /home/grad/doc/2025/jcheng2/.triton/autotune, appears to be on an NFS system. While
+ this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR envir
+onment variable to a non-NFS path.
+wandb: Currently logged in as: jialicheng to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.21.0
+wandb: Run data is saved locally in /home/public/jcheng2/open-unlearning/wandb/run-20250702_202418-tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy
+_to_hard-prob
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Resuming run tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-prob
+wandb: ⭐️ View project at https://wandb.ai/jialicheng/Curriculum%20Unlearning
+wandb: 🚀 View run at https://wandb.ai/jialicheng/Curriculum%20Unlearning/runs/tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-prob
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████████████████████████████| 4/4 [00:03<00:00,  1.10it/s]
+[2025-07-02 20:24:23,611][model][INFO] - Setting pad_token as eos token: <|eot_id|>
+[2025-07-02 20:24:23,615][evaluator][INFO] - Evaluations stored in the experiment directory: saves/unlearn/easy_to_hard/prob/tofu_Llama-3.1-8B-
+Instruct_forget01_NPO/evals
+[2025-07-02 20:24:23,617][evaluator][INFO] - ***** Running TOFU evaluation suite *****
+[2025-07-02 20:24:23,617][evaluator][INFO] - Fine-grained evaluations will be saved to: saves/unlearn/easy_to_hard/prob/tofu_Llama-3.1-8B-Instr
+uct_forget01_NPO/evals/TOFU_EVAL.json
+[2025-07-02 20:24:23,617][evaluator][INFO] - Aggregated evaluations will be summarised in: saves/unlearn/easy_to_hard/prob/tofu_Llama-3.1-8B-In
+struct_forget01_NPO/evals/TOFU_SUMMARY.json
+[2025-07-02 20:24:24,349][metrics][INFO] - Loading evaluations from saves/eval/tofu_Llama-3.1-8B-Instruct_retain99/TOFU_EVAL.json
+[2025-07-02 20:24:24,361][metrics][INFO] - Evaluating forget_Q_A_PARA_Prob
+Calculating loss: 100%|██████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:01<00:00,  1.41it/s]
+Evaluated 40 examples
+[2025-07-02 20:24:26,165][metrics][INFO] - Loading evaluations from saves/eval/tofu_Llama-3.1-8B-Instruct_retain99/TOFU_EVAL.json
+[2025-07-02 20:24:26,182][metrics][INFO] - Evaluating forget_Q_A_PERT_Prob
+Calculating loss: 100%|██████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:04<00:00,  2.22s/it]
+Evaluated 40 examples
+[2025-07-02 20:24:30,615][metrics][INFO] - Loading evaluations from saves/eval/tofu_Llama-3.1-8B-Instruct_retain99/TOFU_EVAL.json
+[2025-07-02 20:24:30,624][metrics][INFO] - Evaluating forget_truth_ratio
+[2025-07-02 20:24:30,626][metrics][INFO] - Loading evaluations from saves/eval/tofu_Llama-3.1-8B-Instruct_retain99/TOFU_EVAL.json
+[2025-07-02 20:24:30,633][metrics][INFO] - Evaluating forget_quality
+[2025-07-02 20:24:30,635][evaluator][INFO] - Result for metric forget_quality:  0.404587405685253
+[2025-07-02 20:24:30,930][metrics][INFO] - Evaluating forget_Q_A_Prob
+Calculating loss: 100%|██████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:00<00:00,  2.31it/s]
+Evaluated 40 examples
+[2025-07-02 20:24:31,798][evaluator][INFO] - Result for metric forget_Q_A_Prob: 0.23930243318900465
+[2025-07-02 20:24:32,206][metrics][INFO] - Evaluating forget_Q_A_ROUGE
+Calculating text similarity:   0%|                                                                                       | 0/2 [00:00<?, ?it/s]
+Starting from v4.46, the `logits` model output will have the same type as the model (except at train time, where it will always be FP32)
+Calculating text similarity: 100%|███████████████████████████████████████████████████████████████████████████████| 2/2 [00:04<00:00,  2.35s/it]
+Evaluated 40 examples
+[2025-07-02 20:24:36,917][evaluator][INFO] - Result for metric forget_Q_A_ROUGE:        0.48106836453329543
+[2025-07-02 20:24:37,222][metrics][INFO] - Evaluating retain_Q_A_Prob
+Calculating loss: 100%|████████████████████████████████████████████████████████████████████████████████████████| 13/13 [00:06<00:00,  1.87it/s]
+Evaluated 400 examples
+[2025-07-02 20:24:44,552][metrics][INFO] - Evaluating retain_Q_A_ROUGE
+Calculating text similarity: 100%|█████████████████████████████████████████████████████████████████████████████| 13/13 [00:29<00:00,  2.28s/it]
+Evaluated 400 examples
+[2025-07-02 20:25:14,584][metrics][INFO] - Evaluating retain_Q_A_PARA_Prob
+Calculating loss: 100%|████████████████████████████████████████████████████████████████████████████████████████| 13/13 [00:07<00:00,  1.72it/s]
+Evaluated 400 examples
+[2025-07-02 20:25:22,585][metrics][INFO] - Evaluating retain_Q_A_PERT_Prob
+Calculating loss: 100%|████████████████████████████████████████████████████████████████████████████████████████| 13/13 [00:37<00:00,  2.88s/it]
+Evaluated 400 examples
+[2025-07-02 20:25:59,990][metrics][INFO] - Evaluating retain_Truth_Ratio
+[2025-07-02 20:26:00,366][metrics][INFO] - Evaluating ra_Q_A_Prob
+Calculating loss: 100%|██████████████████████████████████████████████████████████████████████████████████████████| 4/4 [00:01<00:00,  3.19it/s]
+Evaluated 100 examples
+[2025-07-02 20:26:01,901][metrics][INFO] - Evaluating ra_Q_A_PERT_Prob
+Calculating loss: 100%|██████████████████████████████████████████████████████████████████████████████████████████| 4/4 [00:03<00:00,  1.12it/s]
+Evaluated 100 examples
+[2025-07-02 20:26:05,483][metrics][INFO] - Evaluating ra_Q_A_Prob_normalised
+[2025-07-02 20:26:05,760][metrics][INFO] - Evaluating ra_Q_A_ROUGE
+Calculating text similarity: 100%|███████████████████████████████████████████████████████████████████████████████| 4/4 [00:05<00:00,  1.37s/it]
+Evaluated 100 examples
+[2025-07-02 20:26:11,227][metrics][INFO] - Skipping ra_Truth_Ratio's precompute ra_Q_A_Prob, already evaluated.
+[2025-07-02 20:26:11,227][metrics][INFO] - Skipping ra_Truth_Ratio's precompute ra_Q_A_PERT_Prob, already evaluated.
+[2025-07-02 20:26:11,227][metrics][INFO] - Evaluating ra_Truth_Ratio
+[2025-07-02 20:26:11,519][metrics][INFO] - Evaluating wf_Q_A_Prob
+Calculating loss: 100%|██████████████████████████████████████████████████████████████████████████████████████████| 4/4 [00:01<00:00,  3.23it/s]
+Evaluated 117 examples
+[2025-07-02 20:26:13,113][metrics][INFO] - Evaluating wf_Q_A_PERT_Prob
+Calculating loss: 100%|██████████████████████████████████████████████████████████████████████████████████████████| 4/4 [00:03<00:00,  1.06it/s]
+Evaluated 117 examples
+[2025-07-02 20:26:16,902][metrics][INFO] - Evaluating wf_Q_A_Prob_normalised
+[2025-07-02 20:26:17,194][metrics][INFO] - Evaluating wf_Q_A_ROUGE
+Calculating text similarity: 100%|███████████████████████████████████████████████████████████████████████████████| 4/4 [00:07<00:00,  1.85s/it]
+Evaluated 117 examples
+[2025-07-02 20:26:24,608][metrics][INFO] - Skipping wf_Truth_Ratio's precompute wf_Q_A_Prob, already evaluated.
+[2025-07-02 20:26:24,608][metrics][INFO] - Skipping wf_Truth_Ratio's precompute wf_Q_A_PERT_Prob, already evaluated.
+[2025-07-02 20:26:24,608][metrics][INFO] - Evaluating wf_Truth_Ratio
+[2025-07-02 20:26:24,609][metrics][INFO] - Evaluating model_utility
+[2025-07-02 20:26:24,610][evaluator][INFO] - Result for metric model_utility:   0.6360862535423848
+[2025-07-02 20:26:25,347][metrics][INFO] - Loading evaluations from saves/eval/tofu_Llama-3.1-8B-Instruct_retain99/TOFU_EVAL.json
+[2025-07-02 20:26:25,364][metrics][INFO] - Evaluating mia_min_k
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:00<00:00,  3.08it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:00<00:00,  3.14it/s]
+[2025-07-02 20:26:26,655][metrics][INFO] - Loading evaluations from saves/eval/tofu_Llama-3.1-8B-Instruct_retain99/TOFU_EVAL.json
+[2025-07-02 20:26:26,662][metrics][INFO] - Evaluating privleak
+[2025-07-02 20:26:26,663][evaluator][INFO] - Result for metric privleak:        -55.249999988949995
+[2025-07-02 20:26:27,027][metrics][INFO] - Evaluating extraction_strength
+Calculating ES: 100%|████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:00<00:00,  2.92it/s]
+Evaluated 40 examples
+[2025-07-02 20:26:27,713][evaluator][INFO] - Result for metric extraction_strength:     0.2033618270699229
+wandb:
+wandb: 🚀 View run tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-prob at: https://wandb.ai/jialicheng/Curriculum%20Unlearning/runs/tofu-
+forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-prob
+wandb: Find logs at: wandb/run-20250702_202418-tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-prob/logs
+easy_to_hard/exact_mem/tofu_Llama-3.1-8B-Instruct_forget01_NPO Model Not Found
+[2025-07-02 20:26:33,076] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Warning: The cache directory for DeepSpeed Triton autotune, /home/grad/doc/2025/jcheng2/.triton/autotune, appears to be on an NFS system. While
+ this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR envir
+onment variable to a non-NFS path.
+W0702 20:26:35.023000 140618177562432 torch/distributed/run.py:779]
+W0702 20:26:35.023000 140618177562432 torch/distributed/run.py:779] *****************************************
+W0702 20:26:35.023000 140618177562432 torch/distributed/run.py:779] Setting OMP_NUM_THREADS environment variable for each process to be 1 in de
+fault, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed.
+W0702 20:26:35.023000 140618177562432 torch/distributed/run.py:779] *****************************************
+[2025-07-02 20:26:40,407] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-07-02 20:26:40,572] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-07-02 20:26:40,574] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-07-02 20:26:40,576] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Warning: The cache directory for DeepSpeed Triton autotune, /home/grad/doc/2025/jcheng2/.triton/autotune, appears to be on an NFS system. While
+ this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR envir
+onment variable to a non-NFS path.
+Warning: The cache directory for DeepSpeed Triton autotune, /home/grad/doc/2025/jcheng2/.triton/autotune, appears to be on an NFS system. While
+ this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR envir
+onment variable to a non-NFS path.
+Warning: The cache directory for DeepSpeed Triton autotune, /home/grad/doc/2025/jcheng2/.triton/autotune, appears to be on an NFS system. While
+ this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR envir
+onment variable to a non-NFS path.
+Warning: The cache directory for DeepSpeed Triton autotune, /home/grad/doc/2025/jcheng2/.triton/autotune, appears to be on an NFS system. While
+ this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR envir
+onment variable to a non-NFS path.
+wandb: Currently logged in as: jialicheng to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.21.0
+wandb: Run data is saved locally in /home/public/jcheng2/open-unlearning/wandb/run-20250702_202644-tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy
+_to_hard-exact_mem
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-exact_mem
+wandb: ⭐️ View project at https://wandb.ai/jialicheng/Curriculum%20Unlearning
+wandb: 🚀 View run at https://wandb.ai/jialicheng/Curriculum%20Unlearning/runs/tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-exact_mem
+wandb: Currently logged in as: jialicheng to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Currently logged in as: jialicheng to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Currently logged in as: jialicheng to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on
+CPU with `model.to('cuda')`.
+Loading checkpoint shards:  25%|████████████████████▎                                                            | 1/4 [00:00<00:00,  4.69it/s]
+wandb: Tracking run with wandb version 0.21.0
+wandb: Run data is saved locally in /home/public/jcheng2/open-unlearning/wandb/run-20250702_202645-tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy
+_to_hard-exact_mem
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Resuming run tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-exact_mem
+wandb: ⭐️ View project at https://wandb.ai/jialicheng/Curriculum%20Unlearning
+wandb: 🚀 View run at https://wandb.ai/jialicheng/Curriculum%20Unlearning/runs/tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-exact_mem
+Loading checkpoint shards:  50%|████████████████████████████████████████▌                                        | 2/4 [00:00<00:00,  4.76it/s]
+wandb: Tracking run with wandb version 0.21.0
+wandb: Run data is saved locally in /home/public/jcheng2/open-unlearning/wandb/run-20250702_202645-tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy
+_to_hard-exact_mem
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Resuming run tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-exact_mem
+wandb: ⭐️ View project at https://wandb.ai/jialicheng/Curriculum%20Unlearning
+wandb: 🚀 View run at https://wandb.ai/jialicheng/Curriculum%20Unlearning/runs/tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-exact_mem
+wandb: Tracking run with wandb version 0.21.0
+wandb: Run data is saved locally in /home/public/jcheng2/open-unlearning/wandb/run-20250702_202645-tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy
+_to_hard-exact_mem
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Resuming run tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-exact_mem
+wandb: ⭐️ View project at https://wandb.ai/jialicheng/Curriculum%20Unlearning
+wandb: 🚀 View run at https://wandb.ai/jialicheng/Curriculum%20Unlearning/runs/tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-exact_mem
+Loading checkpoint shards:  75%|████████████████████████████████████████████████████████████▊                    | 3/4 [00:00<00:00,  4.80it/s]
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on
+CPU with `model.to('cuda')`.
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on
+CPU with `model.to('cuda')`.
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on
+CPU with `model.to('cuda')`.
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████████████████████████████| 4/4 [00:00<00:00,  4.83it/s]
+Loading checkpoint shards:  50%|████████████████████████████████████████▌                                        | 2/4 [00:00<00:00,  5.47it/s]
+[2025-07-02 20:26:47,456][model][INFO] - Setting pad_token as eos token: <|eot_id|>
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████████████████████████████| 4/4 [00:00<00:00,  5.48it/s]
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████████████████████████████| 4/4 [00:00<00:00,  4.86it/s]
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████████████████████████████| 4/4 [00:00<00:00,  4.81it/s]
+[2025-07-02 20:26:48,277][model][INFO] - Setting pad_token as eos token: <|eot_id|>
+[2025-07-02 20:26:48,425][evaluator][INFO] - Evaluations stored in the experiment directory: ./saves/unlearn/easy_to_hard/exact_mem/tofu_Llama-
+3.1-8B-Instruct_forget01_NPO
+[2025-07-02 20:26:48,505] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-07-02 20:26:48,635][model][INFO] - Setting pad_token as eos token: <|eot_id|>
+[2025-07-02 20:26:48,861][model][INFO] - Setting pad_token as eos token: <|eot_id|>
+/home/public/jcheng2/open-unlearning/src/trainer/base.py:49: FutureWarning: You are using `torch.load` with `weights_only=False` (the current d
+efault value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary
+code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, t
+he default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary ob
+jects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe
+_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please ope
+n an issue on GitHub for any issues related to this experimental feature.
+  self.sample_difficulty = torch.load(
+[2025-07-02 20:26:49,178][evaluator][INFO] - Evaluations stored in the experiment directory: ./saves/unlearn/easy_to_hard/exact_mem/tofu_Llama-
+3.1-8B-Instruct_forget01_NPO
+[2025-07-02 20:26:49,270] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-07-02 20:26:49,594][evaluator][INFO] - Evaluations stored in the experiment directory: ./saves/unlearn/easy_to_hard/exact_mem/tofu_Llama-
+3.1-8B-Instruct_forget01_NPO
+[2025-07-02 20:26:49,678] [INFO] [comm.py:652:init_distributed] cdb=None
+/home/public/jcheng2/open-unlearning/src/trainer/base.py:49: FutureWarning: You are using `torch.load` with `weights_only=False` (the current d
+efault value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary
+code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, t
+he default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary ob
+jects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe
+_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please ope
+n an issue on GitHub for any issues related to this experimental feature.
+  self.sample_difficulty = torch.load(
+[2025-07-02 20:26:49,797][evaluator][INFO] - Evaluations stored in the experiment directory: ./saves/unlearn/easy_to_hard/exact_mem/tofu_Llama-
+3.1-8B-Instruct_forget01_NPO
+[2025-07-02 20:26:49,888] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-07-02 20:26:49,888] [INFO] [comm.py:683:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+/home/public/jcheng2/open-unlearning/src/trainer/base.py:49: FutureWarning: You are using `torch.load` with `weights_only=False` (the current d
+efault value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary
+code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, t
+he default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary ob
+jects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe
+_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please ope
+n an issue on GitHub for any issues related to this experimental feature.
+  self.sample_difficulty = torch.load(
+/home/public/jcheng2/open-unlearning/src/trainer/base.py:49: FutureWarning: You are using `torch.load` with `weights_only=False` (the current d
+efault value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary
+code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, t
+he default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary ob
+jects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe
+_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please ope
+n an issue on GitHub for any issues related to this experimental feature.
+  self.sample_difficulty = torch.load(
+[2025-07-02 20:27:01,051] [INFO] [logging.py:128:log_dist] [Rank 0] DeepSpeed info: version=0.15.4, git-hash=unknown, git-branch=unknown
+[2025-07-02 20:27:01,052] [INFO] [config.py:733:__init__] Config mesh_device None world_size = 4
+[2025-07-02 20:27:01,849] [INFO] [config.py:733:__init__] Config mesh_device None world_size = 4
+[2025-07-02 20:27:02,621] [INFO] [config.py:733:__init__] Config mesh_device None world_size = 4
+[2025-07-02 20:27:04,396] [INFO] [config.py:733:__init__] Config mesh_device None world_size = 4
+[2025-07-02 20:27:04,852] [INFO] [logging.py:128:log_dist] [Rank 0] DeepSpeed Flops Profiler Enabled: False
+[2025-07-02 20:27:04,854] [INFO] [logging.py:128:log_dist] [Rank 0] Creating ZeRO Offload
+[2025-07-02 20:27:04,855] [INFO] [config.py:733:__init__] Config mesh_device None world_size = 4
+[2025-07-02 20:27:04,857] [INFO] [config.py:733:__init__] Config mesh_device None world_size = 4
+[2025-07-02 20:27:04,861] [INFO] [config.py:733:__init__] Config mesh_device None world_size = 4
+[2025-07-02 20:27:05,226] [INFO] [utils.py:781:see_memory_usage] DeepSpeedZeRoOffload initialize [begin]
+[2025-07-02 20:27:05,227] [INFO] [utils.py:782:see_memory_usage] MA 14.96 GB         Max_MA 14.96 GB         CA 15.08 GB         Max_CA 15 GB
+[2025-07-02 20:27:05,228] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 26.79 GB, percent = 2.7%
+[2025-07-02 20:27:05,233] [INFO] [config.py:733:__init__] Config mesh_device None world_size = 4
+[2025-07-02 20:27:05,756][trainer][INFO] - NPO Trainer loaded, output_dir: ./saves/unlearn/easy_to_hard/exact_mem/tofu_Llama-3.1-8B-Instruct_fo
+rget01_NPO
+[2025-07-02 20:27:05,761][trainer][INFO] - NPO Trainer loaded, output_dir: ./saves/unlearn/easy_to_hard/exact_mem/tofu_Llama-3.1-8B-Instruct_fo
+rget01_NPO
+Parameter Offload: Total persistent parameters: 266240 in 65 params
+[2025-07-02 20:27:05,898][trainer][INFO] - NPO Trainer loaded, output_dir: ./saves/unlearn/easy_to_hard/exact_mem/tofu_Llama-3.1-8B-Instruct_fo
+rget01_NPO
+[2025-07-02 20:27:06,004] [INFO] [utils.py:781:see_memory_usage] DeepSpeedZeRoOffload initialize [end]
+[2025-07-02 20:27:06,005] [INFO] [utils.py:782:see_memory_usage] MA 3.74 GB         Max_MA 15.2 GB         CA 15.33 GB         Max_CA 15 GB
+[2025-07-02 20:27:06,005] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 26.97 GB, percent = 2.7%
+[2025-07-02 20:27:06,007] [INFO] [config.py:999:print] DeepSpeedEngine configuration:
+[2025-07-02 20:27:06,007] [INFO] [config.py:1003:print]   activation_checkpointing_config  {
+    "partition_activations": false,
+    "contiguous_memory_optimization": false,
+    "cpu_checkpointing": false,
+    "number_checkpoints": null,
+    "synchronize_checkpoint_boundary": false,
+    "profile": false
+}
+[2025-07-02 20:27:06,007] [INFO] [config.py:1003:print]   aio_config ................... {'block_size': 1048576, 'queue_depth': 8, 'thread_coun
+t': 1, 'single_submit': False, 'overlap_events': True, 'use_gds': False}
+[2025-07-02 20:27:06,007] [INFO] [config.py:1003:print]   amp_enabled .................. False
+[2025-07-02 20:27:06,007] [INFO] [config.py:1003:print]   amp_params ................... False
+[2025-07-02 20:27:06,008] [INFO] [config.py:1003:print]   autotuning_config ............ {
+    "enabled": false,
+    "start_step": null,
+    "end_step": null,
+    "metric_path": null,
+    "arg_mappings": null,
+    "metric": "throughput",
+    "model_info": null,
+    "results_dir": "autotuning_results",
+    "exps_dir": "autotuning_exps",
+    "overwrite": true,
+    "fast": true,
+    "start_profile_step": 3,
+    "end_profile_step": 5,
+    "tuner_type": "gridsearch",
+    "tuner_early_stopping": 5,
+    "tuner_num_trials": 50,
+    "model_info_path": null,
+    "mp_size": 1,
+    "max_train_batch_size": null,
+    "min_train_batch_size": 1,
+    "max_train_micro_batch_size_per_gpu": 1.024000e+03,
+    "min_train_micro_batch_size_per_gpu": 1,
+    "num_tuning_micro_batch_sizes": 3
+}
+[2025-07-02 20:27:06,008] [INFO] [config.py:1003:print]   bfloat16_enabled ............. True
+[2025-07-02 20:27:06,008] [INFO] [config.py:1003:print]   bfloat16_immediate_grad_update  False
+[2025-07-02 20:27:06,008] [INFO] [config.py:1003:print]   checkpoint_parallel_write_pipeline  False
+[2025-07-02 20:27:06,008] [INFO] [config.py:1003:print]   checkpoint_tag_validation_enabled  True
+[2025-07-02 20:27:06,008] [INFO] [config.py:1003:print]   checkpoint_tag_validation_fail  False
+[2025-07-02 20:27:06,008] [INFO] [config.py:1003:print]   comms_config ................. <deepspeed.comm.config.DeepSpeedCommsConfig object at
+0x7f3515f8bf90>
+[2025-07-02 20:27:06,008] [INFO] [config.py:1003:print]   communication_data_type ...... None
+[2025-07-02 20:27:06,008] [INFO] [config.py:1003:print]   compression_config ........... {'weight_quantization': {'shared_parameters': {'enable
+d': False, 'quantizer_kernel': False, 'schedule_offset': 0, 'quantize_groups': 1, 'quantize_verbose': False, 'quantization_type': 'symmetric',
+'quantize_weight_in_forward': False, 'rounding': 'nearest', 'fp16_mixed_quantize': False, 'quantize_change_ratio': 0.001}, 'different_groups':
+{}}, 'activation_quantization': {'shared_parameters': {'enabled': False, 'quantization_type': 'symmetric', 'range_calibration': 'dynamic', 'sch
+edule_offset': 1000}, 'different_groups': {}}, 'sparse_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 10
+00}, 'different_groups': {}}, 'row_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_grou
+ps': {}}, 'head_pruning': {'shared_parameters': {'enabled': False, 'method': 'topk', 'schedule_offset': 1000}, 'different_groups': {}}, 'channe
+l_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'layer_reduction': {'en
+abled': False}}
+[2025-07-02 20:27:06,008] [INFO] [config.py:1003:print]   curriculum_enabled_legacy .... False
+[2025-07-02 20:27:06,008] [INFO] [config.py:1003:print]   curriculum_params_legacy ..... False
+[2025-07-02 20:27:06,009] [INFO] [config.py:1003:print]   data_efficiency_config ....... {'enabled': False, 'seed': 1234, 'data_sampling': {'en
+abled': False, 'num_epochs': 1000, 'num_workers': 0, 'curriculum_learning': {'enabled': False}}, 'data_routing': {'enabled': False, 'random_ltd
+': {'enabled': False, 'layer_token_lr_schedule': {'enabled': False}}}}
+[2025-07-02 20:27:06,009] [INFO] [config.py:1003:print]   data_efficiency_enabled ...... False
+[2025-07-02 20:27:06,009] [INFO] [config.py:1003:print]   dataloader_drop_last ......... False
+[2025-07-02 20:27:06,009] [INFO] [config.py:1003:print]   disable_allgather ............ False
+[2025-07-02 20:27:06,009] [INFO] [config.py:1003:print]   dump_state ................... False
+[2025-07-02 20:27:06,009] [INFO] [config.py:1003:print]   dynamic_loss_scale_args ...... None
+[2025-07-02 20:27:06,009] [INFO] [config.py:1003:print]   eigenvalue_enabled ........... False
+[2025-07-02 20:27:06,009] [INFO] [config.py:1003:print]   eigenvalue_gas_boundary_resolution  1
+[2025-07-02 20:27:06,009] [INFO] [config.py:1003:print]   eigenvalue_layer_name ........ bert.encoder.layer
+[2025-07-02 20:27:06,009] [INFO] [config.py:1003:print]   eigenvalue_layer_num ......... 0
+[2025-07-02 20:27:06,009] [INFO] [config.py:1003:print]   eigenvalue_max_iter .......... 100
+[2025-07-02 20:27:06,009] [INFO] [config.py:1003:print]   eigenvalue_stability ......... 1e-06
+[2025-07-02 20:27:06,009] [INFO] [config.py:1003:print]   eigenvalue_tol ............... 0.01
+[2025-07-02 20:27:06,009] [INFO] [config.py:1003:print]   eigenvalue_verbose ........... False
+[2025-07-02 20:27:06,010] [INFO] [config.py:1003:print]   elasticity_enabled ........... False
+[2025-07-02 20:27:06,010] [INFO] [config.py:1003:print]   flops_profiler_config ........ {
+    "enabled": false,
+    "recompute_fwd_factor": 0.0,
+    "profile_step": 1,
+    "module_depth": -1,
+    "top_modules": 1,
+    "detailed": true,
+    "output_file": null
+}
+[2025-07-02 20:27:06,010] [INFO] [config.py:1003:print]   fp16_auto_cast ............... None
+[2025-07-02 20:27:06,010] [INFO] [config.py:1003:print]   fp16_enabled ................. False
+[2025-07-02 20:27:06,010] [INFO] [config.py:1003:print]   fp16_master_weights_and_gradients  False
+[2025-07-02 20:27:06,010] [INFO] [config.py:1003:print]   global_rank .................. 0
+[2025-07-02 20:27:06,010] [INFO] [config.py:1003:print]   grad_accum_dtype ............. None
+[2025-07-02 20:27:06,010] [INFO] [config.py:1003:print]   gradient_accumulation_steps .. 2
+[2025-07-02 20:27:06,010] [INFO] [config.py:1003:print]   gradient_clipping ............ 0.0
+[2025-07-02 20:27:06,010] [INFO] [config.py:1003:print]   gradient_predivide_factor .... 1.0
+[2025-07-02 20:27:06,010] [INFO] [config.py:1003:print]   graph_harvesting ............. False
+[2025-07-02 20:27:06,010] [INFO] [config.py:1003:print]   hybrid_engine ................ enabled=False max_out_tokens=512 inference_tp_size=1 r
+elease_inference_cache=False pin_parameters=True tp_gather_partition_size=8
+[2025-07-02 20:27:06,011] [INFO] [config.py:1003:print]   initial_dynamic_scale ........ 1
+[2025-07-02 20:27:06,011] [INFO] [config.py:1003:print]   load_universal_checkpoint .... False
+[2025-07-02 20:27:06,011] [INFO] [config.py:1003:print]   loss_scale ................... 1.0
+[2025-07-02 20:27:06,011] [INFO] [config.py:1003:print]   memory_breakdown ............. False
+[2025-07-02 20:27:06,011] [INFO] [config.py:1003:print]   mics_hierarchial_params_gather  False
+[2025-07-02 20:27:06,011] [INFO] [config.py:1003:print]   mics_shard_size .............. -1
+[2025-07-02 20:27:06,011] [INFO] [config.py:1003:print]   monitor_config ............... tensorboard=TensorBoardConfig(enabled=False, output_pa
+th='', job_name='DeepSpeedJobName') comet=CometConfig(enabled=False, samples_log_interval=100, project=None, workspace=None, api_key=None, expe
+riment_name=None, experiment_key=None, online=None, mode=None) wandb=WandbConfig(enabled=False, group=None, team=None, project='deepspeed') csv
+_monitor=CSVConfig(enabled=False, output_path='', job_name='DeepSpeedJobName')
+[2025-07-02 20:27:06,011] [INFO] [config.py:1003:print]   nebula_config ................ {
+    "enabled": false,
+    "persistent_storage_path": null,
+    "persistent_time_interval": 100,
+    "num_of_version_in_retention": 2,
+    "enable_nebula_load": true,
+    "load_path": null
+}
+[2025-07-02 20:27:06,011] [INFO] [config.py:1003:print]   optimizer_legacy_fusion ...... False
+[2025-07-02 20:27:06,011] [INFO] [config.py:1003:print]   optimizer_name ............... None
+[2025-07-02 20:27:06,012] [INFO] [config.py:1003:print]   optimizer_params ............. None
+[2025-07-02 20:27:06,012] [INFO] [config.py:1003:print]   pipeline ..................... {'stages': 'auto', 'partition': 'best', 'seed_layers':
+ False, 'activation_checkpoint_interval': 0, 'pipe_partitioned': True, 'grad_partitioned': True}
+[2025-07-02 20:27:06,012] [INFO] [config.py:1003:print]   pld_enabled .................. False
+[2025-07-02 20:27:06,012] [INFO] [config.py:1003:print]   pld_params ................... False
+[2025-07-02 20:27:06,012] [INFO] [config.py:1003:print]   prescale_gradients ........... False
+[2025-07-02 20:27:06,012] [INFO] [config.py:1003:print]   scheduler_name ............... None
+[2025-07-02 20:27:06,012] [INFO] [config.py:1003:print]   scheduler_params ............. None
+[2025-07-02 20:27:06,012] [INFO] [config.py:1003:print]   seq_parallel_communication_data_type  torch.float32
+[2025-07-02 20:27:06,012] [INFO] [config.py:1003:print]   sparse_attention ............. None
+[2025-07-02 20:27:06,012] [INFO] [config.py:1003:print]   sparse_gradients_enabled ..... False
+[2025-07-02 20:27:06,012] [INFO] [config.py:1003:print]   steps_per_print .............. inf
+[2025-07-02 20:27:06,012] [INFO] [config.py:1003:print]   timers_config ................ enabled=True synchronized=True
+[2025-07-02 20:27:06,012] [INFO] [config.py:1003:print]   train_batch_size ............. 32
+[2025-07-02 20:27:06,012] [INFO] [config.py:1003:print]   train_micro_batch_size_per_gpu  4
+[2025-07-02 20:27:06,013] [INFO] [config.py:1003:print]   use_data_before_expert_parallel_  False
+[2025-07-02 20:27:06,013] [INFO] [config.py:1003:print]   use_node_local_storage ....... False
+[2025-07-02 20:27:06,013] [INFO] [config.py:1003:print]   wall_clock_breakdown ......... False
+[2025-07-02 20:27:06,013] [INFO] [config.py:1003:print]   weight_quantization_config ... None
+[2025-07-02 20:27:06,013] [INFO] [config.py:1003:print]   world_size ................... 4
+[2025-07-02 20:27:06,013] [INFO] [config.py:1003:print]   zero_allow_untested_optimizer  False
+[2025-07-02 20:27:06,013] [INFO] [config.py:1003:print]   zero_config .................. stage=3 contiguous_gradients=True reduce_scatter=True
+reduce_bucket_size=500000000 use_multi_rank_bucket_allreduce=True allgather_partitions=True allgather_bucket_size=500000000 overlap_comm=True l
+oad_from_fp32_weights=True elastic_checkpoint=False offload_param=DeepSpeedZeroOffloadParamConfig(device='none', nvme_path=None, buffer_count=5
+, buffer_size=100000000, max_in_cpu=1000000000, pin_memory=True) offload_optimizer=DeepSpeedZeroOffloadOptimizerConfig(device='none', nvme_path
+=None, buffer_count=4, pin_memory=True, pipeline_read=False, pipeline_write=False, fast_init=False, ratio=1.0) sub_group_size=1000000000 cpu_of
+fload_param=None cpu_offload_use_pin_memory=None cpu_offload=None prefetch_bucket_size=50000000 param_persistence_threshold=100000 model_persis
+tence_threshold=9223372036854775807 max_live_parameters=1000000000 max_reuse_distance=1000000000 gather_16bit_weights_on_model_save=True use_al
+l_reduce_for_fetch_params=False stage3_gather_fp16_weights_on_model_save=False ignore_unused_parameters=True legacy_stage1=False round_robin_gr
+adients=False zero_hpz_partition_size=1 zero_quantized_weights=False zero_quantized_nontrainable_weights=False zero_quantized_gradients=False m
+ics_shard_size=-1 mics_hierarchical_params_gather=False memory_efficient_linear=True pipeline_loading_checkpoint=False override_module_apply=Tr
+ue
+[2025-07-02 20:27:06,013] [INFO] [config.py:1003:print]   zero_enabled ................. True
+[2025-07-02 20:27:06,013] [INFO] [config.py:1003:print]   zero_force_ds_cpu_optimizer .. True
+[2025-07-02 20:27:06,013] [INFO] [config.py:1003:print]   zero_optimization_stage ...... 3
+[2025-07-02 20:27:06,014] [INFO] [config.py:989:print_user_config]   json = {
+    "zero_optimization": {
+        "stage": 3,
+        "offload_optimizer": {
+            "device": "none",
+            "pin_memory": true
+        },
+        "offload_param": {
+            "device": "none",
+            "pin_memory": true
+        },
+        "overlap_comm": true,
+        "contiguous_gradients": true,
+        "reduce_bucket_size": "auto",
+        "stage3_prefetch_bucket_size": "auto",
+        "stage3_param_persistence_threshold": "auto",
+        "sub_group_size": 1.000000e+09,
+        "stage3_max_live_parameters": 1.000000e+09,
+        "stage3_max_reuse_distance": 1.000000e+09,
+        "stage3_gather_16bit_weights_on_model_save": true
+    },
+    "train_batch_size": 32,
+    "train_micro_batch_size_per_gpu": 4,
+    "gradient_accumulation_steps": 2,
+    "bf16": {
+        "enabled": true
+    },
+    "steps_per_print": inf,
+    "fp16": {
+        "enabled": false
+    },
+    "zero_optimization.reduce_bucket_size": 1.677722e+07,
+    "zero_optimization.stage3_param_persistence_threshold": 4.096000e+04,
+    "zero_optimization.stage3_prefetch_bucket_size": 1.509949e+07
+}
+[2025-07-02 20:27:06,015][trainer][INFO] - NPO Trainer loaded, output_dir: ./saves/unlearn/easy_to_hard/exact_mem/tofu_Llama-3.1-8B-Instruct_fo
+rget01_NPO
+[2025-07-02 20:27:10,202] [WARNING] [engine.py:1232:_do_optimizer_sanity_check] **** You are using ZeRO with an untested optimizer, proceed wit
+h caution *****
+Parameter Offload: Total persistent parameters: 266240 in 65 params
+wandb: WARNING The `run_name` is currently set to the same value as `TrainingArguments.output_dir`. If this was not intended, please specify a
+different run name by setting the `TrainingArguments.run_name` parameter.
+  0%|                                                                                                                   | 0/10 [00:00<?, ?it/s]
+[2025-07-02 20:27:17,393][trainer.base][WARNING] - Custom evaluator can be run with this Trainer only when a single accelerator process is runn
+ing.
+[Curriculum]: Epoch 0 | Using 1/5 chunks | total samples: 8
+Training dataset updated at epoch 0
+`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+/home/public/jcheng2/miniconda3/envs/un/lib/python3.11/site-packages/torch/utils/checkpoint.py:295: FutureWarning: `torch.cpu.amp.autocast(args
+...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with torch.enable_grad(), device_autocast_ctx, torch.cpu.amp.autocast(**ctx.cpu_autocast_kwargs):  # type: ignore[attr-defined]
+/home/public/jcheng2/miniconda3/envs/un/lib/python3.11/site-packages/torch/utils/checkpoint.py:295: FutureWarning: `torch.cpu.amp.autocast(args
+...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with torch.enable_grad(), device_autocast_ctx, torch.cpu.amp.autocast(**ctx.cpu_autocast_kwargs):  # type: ignore[attr-defined]
+/home/public/jcheng2/miniconda3/envs/un/lib/python3.11/site-packages/torch/utils/checkpoint.py:295: FutureWarning: `torch.cpu.amp.autocast(args
+...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with torch.enable_grad(), device_autocast_ctx, torch.cpu.amp.autocast(**ctx.cpu_autocast_kwargs):  # type: ignore[attr-defined]
+/home/public/jcheng2/miniconda3/envs/un/lib/python3.11/site-packages/torch/utils/checkpoint.py:295: FutureWarning: `torch.cpu.amp.autocast(args
+...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with torch.enable_grad(), device_autocast_ctx, torch.cpu.amp.autocast(**ctx.cpu_autocast_kwargs):  # type: ignore[attr-defined]
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+[Curriculum]: Epoch 0 | Using 1/5 chunks | total samples: 8
+Training dataset updated at epoch 0
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+ 10%|██████████▋                                                                                                | 1/10 [00:26<04:00, 26.69s/it]
+[Curriculum]: Epoch 2 | Using 2/5 chunks | total samples: 16
+Training dataset updated at epoch 2.0
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+ 20%|█████████████████████▍                                                                                     | 2/10 [00:32<01:56, 14.52s/it]
+[Curriculum]: Epoch 3 | Using 2/5 chunks | total samples: 16
+Training dataset updated at epoch 3.0
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+ 30%|████████████████████████████████                                                                           | 3/10 [00:50<01:50, 15.85s/it]
+[Curriculum]: Epoch 4 | Using 3/5 chunks | total samples: 24
+Training dataset updated at epoch 4.0
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+ 40%|██████████████████████████████████████████▊                                                                | 4/10 [00:55<01:10, 11.82s/it]
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+{'loss': 7.9884, 'grad_norm': 122.89028550817727, 'learning_rate': 5.555555555555557e-06, 'epoch': 6.0}
+ 50%|█████████████████████████████████████████████████████▌                                                     | 5/10 [01:12<01:08, 13.68s/it]
+[Curriculum]: Epoch 6 | Using 4/5 chunks | total samples: 32
+Training dataset updated at epoch 6.0
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+ 60%|████████████████████████████████████████████████████████████████▏                                          | 6/10 [01:35<01:07, 16.79s/it]
+[Curriculum]: Epoch 6 | Using 4/5 chunks | total samples: 32
+Training dataset updated at epoch 6.0
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+ 70%|██████████████████████████████████████████████████████████████████████████▉                                | 7/10 [01:58<00:56, 18.81s/it]
+[Curriculum]: Epoch 7 | Using 4/5 chunks | total samples: 32
+Training dataset updated at epoch 7.0
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+ 80%|█████████████████████████████████████████████████████████████████████████████████████▌                     | 8/10 [02:21<00:40, 20.17s/it]
+[Curriculum]: Epoch 8 | Using 5/5 chunks | total samples: 40
+Training dataset updated at epoch 8.0
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+ 90%|████████████████████████████████████████████████████████████████████████████████████████████████▎          | 9/10 [02:44<00:21, 21.09s/it]
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+[Curriculum]: Epoch 9 | Using 5/5 chunks | total samples: 40
+Training dataset updated at epoch 9.0
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+{'loss': 3.8122, 'grad_norm': 62.00752777024613, 'learning_rate': 0.0, 'epoch': 9.33}
+{'train_runtime': 187.7949, 'train_samples_per_second': 2.13, 'train_steps_per_second': 0.053, 'train_loss': 5.9002948760986325, 'epoch': 9.33}
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 10/10 [03:07<00:00, 18.76s/it]
+wandb:
+wandb: 🚀 View run tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-exact_mem at: https://wandb.ai/jialicheng/Curriculum%20Unlearning/runs/
+tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-exact_mem
+wandb: Find logs at: wandb/run-20250702_202644-tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-exact_mem/logs
+wandb:
+wandb: 🚀 View run tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-exact_mem at: https://wandb.ai/jialicheng/Curriculum%20Unlearning/runs/
+tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-exact_mem
+wandb: Find logs at: wandb/run-20250702_202645-tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-exact_mem/logs
+wandb:
+wandb: 🚀 View run tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-exact_mem at: https://wandb.ai/jialicheng/Curriculum%20Unlearning/runs/
+tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-exact_mem
+wandb: Find logs at: wandb/run-20250702_202645-tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-exact_mem/logs
+[2025-07-02 20:30:49,766][trainer.base][WARNING] - Custom evaluator can be run with this Trainer only when a single accelerator process is runn
+ing.
+wandb:
+wandb: 🚀 View run tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-exact_mem at: https://wandb.ai/jialicheng/Curriculum%20Unlearning/runs/
+tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-exact_mem
+wandb: Find logs at: wandb/run-20250702_202645-tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-exact_mem/logs
+easy_to_hard/exact_mem/tofu_Llama-3.1-8B-Instruct_forget01_NPO Eval Not Found
+[2025-07-02 20:30:58,986] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Warning: The cache directory for DeepSpeed Triton autotune, /home/grad/doc/2025/jcheng2/.triton/autotune, appears to be on an NFS system. While
+ this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR envir
+onment variable to a non-NFS path.
+wandb: Currently logged in as: jialicheng to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.21.0
+wandb: Run data is saved locally in /home/public/jcheng2/open-unlearning/wandb/run-20250702_203102-tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy
+_to_hard-exact_mem
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Resuming run tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-exact_mem
+wandb: ⭐️ View project at https://wandb.ai/jialicheng/Curriculum%20Unlearning
+wandb: 🚀 View run at https://wandb.ai/jialicheng/Curriculum%20Unlearning/runs/tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-exact_mem
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████████████████████████████| 4/4 [00:03<00:00,  1.28it/s]
+[2025-07-02 20:31:07,610][model][INFO] - Setting pad_token as eos token: <|eot_id|>
+[2025-07-02 20:31:07,615][evaluator][INFO] - Evaluations stored in the experiment directory: saves/unlearn/easy_to_hard/exact_mem/tofu_Llama-3.
+1-8B-Instruct_forget01_NPO/evals
+[2025-07-02 20:31:07,618][evaluator][INFO] - ***** Running TOFU evaluation suite *****
+[2025-07-02 20:31:07,618][evaluator][INFO] - Fine-grained evaluations will be saved to: saves/unlearn/easy_to_hard/exact_mem/tofu_Llama-3.1-8B-
+Instruct_forget01_NPO/evals/TOFU_EVAL.json
+[2025-07-02 20:31:07,619][evaluator][INFO] - Aggregated evaluations will be summarised in: saves/unlearn/easy_to_hard/exact_mem/tofu_Llama-3.1-
+8B-Instruct_forget01_NPO/evals/TOFU_SUMMARY.json
+[2025-07-02 20:31:08,346][metrics][INFO] - Loading evaluations from saves/eval/tofu_Llama-3.1-8B-Instruct_retain99/TOFU_EVAL.json
+[2025-07-02 20:31:08,360][metrics][INFO] - Evaluating forget_Q_A_PARA_Prob
+Calculating loss: 100%|██████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:01<00:00,  1.37it/s]
+Evaluated 40 examples
+[2025-07-02 20:31:10,211][metrics][INFO] - Loading evaluations from saves/eval/tofu_Llama-3.1-8B-Instruct_retain99/TOFU_EVAL.json
+[2025-07-02 20:31:10,226][metrics][INFO] - Evaluating forget_Q_A_PERT_Prob
+Calculating loss: 100%|██████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:04<00:00,  2.20s/it]
+Evaluated 40 examples
+[2025-07-02 20:31:14,631][metrics][INFO] - Loading evaluations from saves/eval/tofu_Llama-3.1-8B-Instruct_retain99/TOFU_EVAL.json
+[2025-07-02 20:31:14,639][metrics][INFO] - Evaluating forget_truth_ratio
+[2025-07-02 20:31:14,641][metrics][INFO] - Loading evaluations from saves/eval/tofu_Llama-3.1-8B-Instruct_retain99/TOFU_EVAL.json
+[2025-07-02 20:31:14,648][metrics][INFO] - Evaluating forget_quality
+[2025-07-02 20:31:14,650][evaluator][INFO] - Result for metric forget_quality:  0.404587405685253
+[2025-07-02 20:31:14,994][metrics][INFO] - Evaluating forget_Q_A_Prob
+Calculating loss: 100%|██████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:00<00:00,  2.32it/s]
+Evaluated 40 examples
+[2025-07-02 20:31:15,860][evaluator][INFO] - Result for metric forget_Q_A_Prob: 0.23519376013427973
+[2025-07-02 20:31:16,152][metrics][INFO] - Evaluating forget_Q_A_ROUGE
+Calculating text similarity:   0%|                                                                                       | 0/2 [00:00<?, ?it/s]
+Starting from v4.46, the `logits` model output will have the same type as the model (except at train time, where it will always be FP32)
+Calculating text similarity: 100%|███████████████████████████████████████████████████████████████████████████████| 2/2 [00:04<00:00,  2.35s/it]
+Evaluated 40 examples
+[2025-07-02 20:31:20,860][evaluator][INFO] - Result for metric forget_Q_A_ROUGE:        0.5166069455534334
+[2025-07-02 20:31:21,150][metrics][INFO] - Evaluating retain_Q_A_Prob
+Calculating loss: 100%|████████████████████████████████████████████████████████████████████████████████████████| 13/13 [00:06<00:00,  1.87it/s]
+Evaluated 400 examples
+[2025-07-02 20:31:28,539][metrics][INFO] - Evaluating retain_Q_A_ROUGE
+Calculating text similarity: 100%|█████████████████████████████████████████████████████████████████████████████| 13/13 [00:29<00:00,  2.30s/it]
+Evaluated 400 examples
+[2025-07-02 20:31:58,809][metrics][INFO] - Evaluating retain_Q_A_PARA_Prob
+Calculating loss: 100%|████████████████████████████████████████████████████████████████████████████████████████| 13/13 [00:07<00:00,  1.72it/s]
+Evaluated 400 examples
+[2025-07-02 20:32:06,771][metrics][INFO] - Evaluating retain_Q_A_PERT_Prob
+Calculating loss: 100%|████████████████████████████████████████████████████████████████████████████████████████| 13/13 [00:37<00:00,  2.87s/it]
+Evaluated 400 examples
+[2025-07-02 20:32:44,039][metrics][INFO] - Evaluating retain_Truth_Ratio
+[2025-07-02 20:32:44,400][metrics][INFO] - Evaluating ra_Q_A_Prob
+Calculating loss: 100%|██████████████████████████████████████████████████████████████████████████████████████████| 4/4 [00:01<00:00,  3.24it/s]
+Evaluated 100 examples
+[2025-07-02 20:32:45,931][metrics][INFO] - Evaluating ra_Q_A_PERT_Prob
+Calculating loss: 100%|██████████████████████████████████████████████████████████████████████████████████████████| 4/4 [00:03<00:00,  1.10it/s]
+Evaluated 100 examples
+[2025-07-02 20:32:49,555][metrics][INFO] - Evaluating ra_Q_A_Prob_normalised
+[2025-07-02 20:32:49,836][metrics][INFO] - Evaluating ra_Q_A_ROUGE
+Calculating text similarity: 100%|███████████████████████████████████████████████████████████████████████████████| 4/4 [00:05<00:00,  1.30s/it]
+Evaluated 100 examples
+[2025-07-02 20:32:55,023][metrics][INFO] - Skipping ra_Truth_Ratio's precompute ra_Q_A_Prob, already evaluated.
+[2025-07-02 20:32:55,023][metrics][INFO] - Skipping ra_Truth_Ratio's precompute ra_Q_A_PERT_Prob, already evaluated.
+[2025-07-02 20:32:55,023][metrics][INFO] - Evaluating ra_Truth_Ratio
+[2025-07-02 20:32:55,574][metrics][INFO] - Evaluating wf_Q_A_Prob
+Calculating loss: 100%|██████████████████████████████████████████████████████████████████████████████████████████| 4/4 [00:01<00:00,  3.23it/s]
+Evaluated 117 examples
+[2025-07-02 20:32:57,096][metrics][INFO] - Evaluating wf_Q_A_PERT_Prob
+Calculating loss: 100%|██████████████████████████████████████████████████████████████████████████████████████████| 4/4 [00:03<00:00,  1.05it/s]
+Evaluated 117 examples
+[2025-07-02 20:33:00,898][metrics][INFO] - Evaluating wf_Q_A_Prob_normalised
+[2025-07-02 20:33:01,387][metrics][INFO] - Evaluating wf_Q_A_ROUGE
+Calculating text similarity: 100%|███████████████████████████████████████████████████████████████████████████████| 4/4 [00:06<00:00,  1.75s/it]
+Evaluated 117 examples
+[2025-07-02 20:33:08,375][metrics][INFO] - Skipping wf_Truth_Ratio's precompute wf_Q_A_Prob, already evaluated.
+[2025-07-02 20:33:08,375][metrics][INFO] - Skipping wf_Truth_Ratio's precompute wf_Q_A_PERT_Prob, already evaluated.
+[2025-07-02 20:33:08,375][metrics][INFO] - Evaluating wf_Truth_Ratio
+[2025-07-02 20:33:08,376][metrics][INFO] - Evaluating model_utility
+[2025-07-02 20:33:08,377][evaluator][INFO] - Result for metric model_utility:   0.6328168151093939
+[2025-07-02 20:33:09,087][metrics][INFO] - Loading evaluations from saves/eval/tofu_Llama-3.1-8B-Instruct_retain99/TOFU_EVAL.json
+[2025-07-02 20:33:09,105][metrics][INFO] - Evaluating mia_min_k
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:00<00:00,  3.08it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:00<00:00,  3.11it/s]
+[2025-07-02 20:33:10,402][metrics][INFO] - Loading evaluations from saves/eval/tofu_Llama-3.1-8B-Instruct_retain99/TOFU_EVAL.json
+[2025-07-02 20:33:10,409][metrics][INFO] - Evaluating privleak
+[2025-07-02 20:33:10,410][evaluator][INFO] - Result for metric privleak:        -53.124999989375
+[2025-07-02 20:33:10,732][metrics][INFO] - Evaluating extraction_strength
+Calculating ES: 100%|████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:00<00:00,  2.92it/s]
+Evaluated 40 examples
+[2025-07-02 20:33:11,418][evaluator][INFO] - Result for metric extraction_strength:     0.18963939422984302
+wandb:
+wandb: 🚀 View run tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-exact_mem at: https://wandb.ai/jialicheng/Curriculum%20Unlearning/runs/
+tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-exact_mem
+wandb: Find logs at: wandb/run-20250702_203102-tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-exact_mem/logs
+easy_to_hard/extraction_strength/tofu_Llama-3.1-8B-Instruct_forget01_NPO Model Not Found
+[2025-07-02 20:33:16,348] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Warning: The cache directory for DeepSpeed Triton autotune, /home/grad/doc/2025/jcheng2/.triton/autotune, appears to be on an NFS system. While
+ this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR envir
+onment variable to a non-NFS path.
+W0702 20:33:18.282000 140199302530880 torch/distributed/run.py:779]
+W0702 20:33:18.282000 140199302530880 torch/distributed/run.py:779] *****************************************
+W0702 20:33:18.282000 140199302530880 torch/distributed/run.py:779] Setting OMP_NUM_THREADS environment variable for each process to be 1 in de
+fault, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed.
+W0702 20:33:18.282000 140199302530880 torch/distributed/run.py:779] *****************************************
+[2025-07-02 20:33:21,862] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Warning: The cache directory for DeepSpeed Triton autotune, /home/grad/doc/2025/jcheng2/.triton/autotune, appears to be on an NFS system. While
+ this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR envir
+onment variable to a non-NFS path.
+[2025-07-02 20:33:23,044] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-07-02 20:33:23,085] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Warning: The cache directory for DeepSpeed Triton autotune, /home/grad/doc/2025/jcheng2/.triton/autotune, appears to be on an NFS system. While
+ this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR envir
+onment variable to a non-NFS path.
+Warning: The cache directory for DeepSpeed Triton autotune, /home/grad/doc/2025/jcheng2/.triton/autotune, appears to be on an NFS system. While
+ this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR envir
+onment variable to a non-NFS path.
+[2025-07-02 20:33:23,288] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Warning: The cache directory for DeepSpeed Triton autotune, /home/grad/doc/2025/jcheng2/.triton/autotune, appears to be on an NFS system. While
+ this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR envir
+onment variable to a non-NFS path.
+wandb: Currently logged in as: jialicheng to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.21.0
+wandb: Run data is saved locally in /home/public/jcheng2/open-unlearning/wandb/run-20250702_203325-tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy
+_to_hard-extraction_strength
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-extraction_strength
+wandb: ⭐️ View project at https://wandb.ai/jialicheng/Curriculum%20Unlearning
+wandb: 🚀 View run at https://wandb.ai/jialicheng/Curriculum%20Unlearning/runs/tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-extraction_
+strength
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on
+CPU with `model.to('cuda')`.
+Loading checkpoint shards:   0%|                                                                                         | 0/4 [00:00<?, ?it/s]
+wandb: Currently logged in as: jialicheng to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Currently logged in as: jialicheng to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████████████████████████████| 4/4 [00:00<00:00,  4.56it/s]
+wandb: Tracking run with wandb version 0.21.0
+wandb: Run data is saved locally in /home/public/jcheng2/open-unlearning/wandb/run-20250702_203327-tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy
+_to_hard-extraction_strength
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Resuming run tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-extraction_strength
+wandb: ⭐️ View project at https://wandb.ai/jialicheng/Curriculum%20Unlearning
+wandb: 🚀 View run at https://wandb.ai/jialicheng/Curriculum%20Unlearning/runs/tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-extraction_
+strength
+wandb: Tracking run with wandb version 0.21.0
+wandb: Run data is saved locally in /home/public/jcheng2/open-unlearning/wandb/run-20250702_203327-tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy
+_to_hard-extraction_strength
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Resuming run tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-extraction_strength
+wandb: ⭐️ View project at https://wandb.ai/jialicheng/Curriculum%20Unlearning
+wandb: 🚀 View run at https://wandb.ai/jialicheng/Curriculum%20Unlearning/runs/tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-extraction_
+strength
+wandb: Currently logged in as: jialicheng to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on
+CPU with `model.to('cuda')`.
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on
+CPU with `model.to('cuda')`.
+[2025-07-02 20:33:29,195][model][INFO] - Setting pad_token as eos token: <|eot_id|>
+Loading checkpoint shards:  25%|████████████████████▎                                                            | 1/4 [00:00<00:00,  5.31it/s]
+wandb: Tracking run with wandb version 0.21.0
+wandb: Run data is saved locally in /home/public/jcheng2/open-unlearning/wandb/run-20250702_203328-tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy
+_to_hard-extraction_strength
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Resuming run tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-extraction_strength
+wandb: ⭐️ View project at https://wandb.ai/jialicheng/Curriculum%20Unlearning
+wandb: 🚀 View run at https://wandb.ai/jialicheng/Curriculum%20Unlearning/runs/tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-extraction_
+strength
+Loading checkpoint shards:  75%|████████████████████████████████████████████████████████████▊                    | 3/4 [00:00<00:00,  4.95it/s]
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on
+CPU with `model.to('cuda')`.
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████████████████████████████| 4/4 [00:00<00:00,  5.00it/s]
+[2025-07-02 20:33:30,190][evaluator][INFO] - Evaluations stored in the experiment directory: ./saves/unlearn/easy_to_hard/extraction_strength/t
+ofu_Llama-3.1-8B-Instruct_forget01_NPO
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████████████████████████████| 4/4 [00:00<00:00,  5.22it/s]
+[2025-07-02 20:33:30,288] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-07-02 20:33:30,289] [INFO] [comm.py:683:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+Loading checkpoint shards:   0%|                                                                                         | 0/4 [00:00<?, ?it/s]
+/home/public/jcheng2/open-unlearning/src/trainer/base.py:49: FutureWarning: You are using `torch.load` with `weights_only=False` (the current d
+efault value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary
+code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, t
+he default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary ob
+jects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe
+_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please ope
+n an issue on GitHub for any issues related to this experimental feature.
+  self.sample_difficulty = torch.load(
+Loading checkpoint shards:  25%|████████████████████▎                                                            | 1/4 [00:00<00:00,  5.33it/s]
+[2025-07-02 20:33:30,742][model][INFO] - Setting pad_token as eos token: <|eot_id|>
+[2025-07-02 20:33:30,749][model][INFO] - Setting pad_token as eos token: <|eot_id|>
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████████████████████████████| 4/4 [00:00<00:00,  4.92it/s]
+[2025-07-02 20:33:31,655][evaluator][INFO] - Evaluations stored in the experiment directory: ./saves/unlearn/easy_to_hard/extraction_strength/t
+ofu_Llama-3.1-8B-Instruct_forget01_NPO
+[2025-07-02 20:33:31,718] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-07-02 20:33:31,737][evaluator][INFO] - Evaluations stored in the experiment directory: ./saves/unlearn/easy_to_hard/extraction_strength/t
+ofu_Llama-3.1-8B-Instruct_forget01_NPO
+[2025-07-02 20:33:31,806] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-07-02 20:33:31,888][model][INFO] - Setting pad_token as eos token: <|eot_id|>
+/home/public/jcheng2/open-unlearning/src/trainer/base.py:49: FutureWarning: You are using `torch.load` with `weights_only=False` (the current d
+efault value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary
+code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, t
+he default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary ob
+jects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe
+_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please ope
+n an issue on GitHub for any issues related to this experimental feature.
+  self.sample_difficulty = torch.load(
+/home/public/jcheng2/open-unlearning/src/trainer/base.py:49: FutureWarning: You are using `torch.load` with `weights_only=False` (the current d
+efault value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary
+code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, t
+he default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary ob
+jects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe
+_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please ope
+n an issue on GitHub for any issues related to this experimental feature.
+  self.sample_difficulty = torch.load(
+[2025-07-02 20:33:32,863][evaluator][INFO] - Evaluations stored in the experiment directory: ./saves/unlearn/easy_to_hard/extraction_strength/t
+ofu_Llama-3.1-8B-Instruct_forget01_NPO
+[2025-07-02 20:33:32,944] [INFO] [comm.py:652:init_distributed] cdb=None
+/home/public/jcheng2/open-unlearning/src/trainer/base.py:49: FutureWarning: You are using `torch.load` with `weights_only=False` (the current d
+efault value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary
+code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, t
+he default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary ob
+jects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe
+_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please ope
+n an issue on GitHub for any issues related to this experimental feature.
+  self.sample_difficulty = torch.load(
+[2025-07-02 20:33:43,971] [INFO] [config.py:733:__init__] Config mesh_device None world_size = 4
+[2025-07-02 20:33:44,018] [INFO] [logging.py:128:log_dist] [Rank 0] DeepSpeed info: version=0.15.4, git-hash=unknown, git-branch=unknown
+[2025-07-02 20:33:44,018] [INFO] [config.py:733:__init__] Config mesh_device None world_size = 4
+[2025-07-02 20:33:44,459] [INFO] [config.py:733:__init__] Config mesh_device None world_size = 4
+[2025-07-02 20:33:45,832] [INFO] [config.py:733:__init__] Config mesh_device None world_size = 4
+[2025-07-02 20:33:46,301] [INFO] [logging.py:128:log_dist] [Rank 0] DeepSpeed Flops Profiler Enabled: False
+[2025-07-02 20:33:46,303] [INFO] [logging.py:128:log_dist] [Rank 0] Creating ZeRO Offload
+[2025-07-02 20:33:46,307] [INFO] [config.py:733:__init__] Config mesh_device None world_size = 4
+[2025-07-02 20:33:46,310] [INFO] [config.py:733:__init__] Config mesh_device None world_size = 4
+[2025-07-02 20:33:46,311] [INFO] [config.py:733:__init__] Config mesh_device None world_size = 4
+[2025-07-02 20:33:46,541] [INFO] [utils.py:781:see_memory_usage] DeepSpeedZeRoOffload initialize [begin]
+[2025-07-02 20:33:46,542] [INFO] [utils.py:782:see_memory_usage] MA 14.96 GB         Max_MA 14.96 GB         CA 15.08 GB         Max_CA 15 GB
+[2025-07-02 20:33:46,542] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 26.82 GB, percent = 2.7%
+[2025-07-02 20:33:46,546] [INFO] [config.py:733:__init__] Config mesh_device None world_size = 4
+[2025-07-02 20:33:47,158][trainer][INFO] - NPO Trainer loaded, output_dir: ./saves/unlearn/easy_to_hard/extraction_strength/tofu_Llama-3.1-8B-I
+nstruct_forget01_NPO
+Parameter Offload: Total persistent parameters: 266240 in 65 params
+[2025-07-02 20:33:47,181][trainer][INFO] - NPO Trainer loaded, output_dir: ./saves/unlearn/easy_to_hard/extraction_strength/tofu_Llama-3.1-8B-I
+nstruct_forget01_NPO
+[2025-07-02 20:33:47,197][trainer][INFO] - NPO Trainer loaded, output_dir: ./saves/unlearn/easy_to_hard/extraction_strength/tofu_Llama-3.1-8B-I
+nstruct_forget01_NPO
+[2025-07-02 20:33:47,358] [INFO] [utils.py:781:see_memory_usage] DeepSpeedZeRoOffload initialize [end]
+[2025-07-02 20:33:47,359] [INFO] [utils.py:782:see_memory_usage] MA 3.74 GB         Max_MA 15.2 GB         CA 15.33 GB         Max_CA 15 GB
+[2025-07-02 20:33:47,360] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 26.97 GB, percent = 2.7%
+[2025-07-02 20:33:47,361] [INFO] [config.py:999:print] DeepSpeedEngine configuration:
+[2025-07-02 20:33:47,361] [INFO] [config.py:1003:print]   activation_checkpointing_config  {
+    "partition_activations": false,
+    "contiguous_memory_optimization": false,
+    "cpu_checkpointing": false,
+    "number_checkpoints": null,
+    "synchronize_checkpoint_boundary": false,
+    "profile": false
+}
+[2025-07-02 20:33:47,361] [INFO] [config.py:1003:print]   aio_config ................... {'block_size': 1048576, 'queue_depth': 8, 'thread_coun
+t': 1, 'single_submit': False, 'overlap_events': True, 'use_gds': False}
+[2025-07-02 20:33:47,362] [INFO] [config.py:1003:print]   amp_enabled .................. False
+[2025-07-02 20:33:47,362] [INFO] [config.py:1003:print]   amp_params ................... False
+[2025-07-02 20:33:47,362] [INFO] [config.py:1003:print]   autotuning_config ............ {
+    "enabled": false,
+    "start_step": null,
+    "end_step": null,
+    "metric_path": null,
+    "arg_mappings": null,
+    "metric": "throughput",
+    "model_info": null,
+    "results_dir": "autotuning_results",
+    "exps_dir": "autotuning_exps",
+    "overwrite": true,
+    "fast": true,
+    "start_profile_step": 3,
+    "end_profile_step": 5,
+    "tuner_type": "gridsearch",
+    "tuner_early_stopping": 5,
+    "tuner_num_trials": 50,
+    "model_info_path": null,
+    "mp_size": 1,
+    "max_train_batch_size": null,
+    "min_train_batch_size": 1,
+    "max_train_micro_batch_size_per_gpu": 1.024000e+03,
+    "min_train_micro_batch_size_per_gpu": 1,
+    "num_tuning_micro_batch_sizes": 3
+}
+[2025-07-02 20:33:47,362] [INFO] [config.py:1003:print]   bfloat16_enabled ............. True
+[2025-07-02 20:33:47,362] [INFO] [config.py:1003:print]   bfloat16_immediate_grad_update  False
+[2025-07-02 20:33:47,362] [INFO] [config.py:1003:print]   checkpoint_parallel_write_pipeline  False
+[2025-07-02 20:33:47,362] [INFO] [config.py:1003:print]   checkpoint_tag_validation_enabled  True
+[2025-07-02 20:33:47,362] [INFO] [config.py:1003:print]   checkpoint_tag_validation_fail  False
+[2025-07-02 20:33:47,362] [INFO] [config.py:1003:print]   comms_config ................. <deepspeed.comm.config.DeepSpeedCommsConfig object at
+0x7fc89bd3e710>
+[2025-07-02 20:33:47,362] [INFO] [config.py:1003:print]   communication_data_type ...... None
+[2025-07-02 20:33:47,362] [INFO] [config.py:1003:print]   compression_config ........... {'weight_quantization': {'shared_parameters': {'enable
+d': False, 'quantizer_kernel': False, 'schedule_offset': 0, 'quantize_groups': 1, 'quantize_verbose': False, 'quantization_type': 'symmetric',
+'quantize_weight_in_forward': False, 'rounding': 'nearest', 'fp16_mixed_quantize': False, 'quantize_change_ratio': 0.001}, 'different_groups':
+{}}, 'activation_quantization': {'shared_parameters': {'enabled': False, 'quantization_type': 'symmetric', 'range_calibration': 'dynamic', 'sch
+edule_offset': 1000}, 'different_groups': {}}, 'sparse_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 10
+00}, 'different_groups': {}}, 'row_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_grou
+ps': {}}, 'head_pruning': {'shared_parameters': {'enabled': False, 'method': 'topk', 'schedule_offset': 1000}, 'different_groups': {}}, 'channe
+l_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'layer_reduction': {'en
+abled': False}}
+[2025-07-02 20:33:47,362] [INFO] [config.py:1003:print]   curriculum_enabled_legacy .... False
+[2025-07-02 20:33:47,362] [INFO] [config.py:1003:print]   curriculum_params_legacy ..... False
+[2025-07-02 20:33:47,363] [INFO] [config.py:1003:print]   data_efficiency_config ....... {'enabled': False, 'seed': 1234, 'data_sampling': {'en
+abled': False, 'num_epochs': 1000, 'num_workers': 0, 'curriculum_learning': {'enabled': False}}, 'data_routing': {'enabled': False, 'random_ltd
+': {'enabled': False, 'layer_token_lr_schedule': {'enabled': False}}}}
+[2025-07-02 20:33:47,363] [INFO] [config.py:1003:print]   data_efficiency_enabled ...... False
+[2025-07-02 20:33:47,363] [INFO] [config.py:1003:print]   dataloader_drop_last ......... False
+[2025-07-02 20:33:47,363] [INFO] [config.py:1003:print]   disable_allgather ............ False
+[2025-07-02 20:33:47,363] [INFO] [config.py:1003:print]   dump_state ................... False
+[2025-07-02 20:33:47,363] [INFO] [config.py:1003:print]   dynamic_loss_scale_args ...... None
+[2025-07-02 20:33:47,363] [INFO] [config.py:1003:print]   eigenvalue_enabled ........... False
+[2025-07-02 20:33:47,363] [INFO] [config.py:1003:print]   eigenvalue_gas_boundary_resolution  1
+[2025-07-02 20:33:47,363] [INFO] [config.py:1003:print]   eigenvalue_layer_name ........ bert.encoder.layer
+[2025-07-02 20:33:47,363] [INFO] [config.py:1003:print]   eigenvalue_layer_num ......... 0
+[2025-07-02 20:33:47,363] [INFO] [config.py:1003:print]   eigenvalue_max_iter .......... 100
+[2025-07-02 20:33:47,363] [INFO] [config.py:1003:print]   eigenvalue_stability ......... 1e-06
+[2025-07-02 20:33:47,363] [INFO] [config.py:1003:print]   eigenvalue_tol ............... 0.01
+[2025-07-02 20:33:47,363] [INFO] [config.py:1003:print]   eigenvalue_verbose ........... False
+[2025-07-02 20:33:47,363] [INFO] [config.py:1003:print]   elasticity_enabled ........... False
+[2025-07-02 20:33:47,363] [INFO] [config.py:1003:print]   flops_profiler_config ........ {
+    "enabled": false,
+    "recompute_fwd_factor": 0.0,
+    "profile_step": 1,
+    "module_depth": -1,
+    "top_modules": 1,
+    "detailed": true,
+    "output_file": null
+}
+[2025-07-02 20:33:47,364] [INFO] [config.py:1003:print]   fp16_auto_cast ............... None
+[2025-07-02 20:33:47,364] [INFO] [config.py:1003:print]   fp16_enabled ................. False
+[2025-07-02 20:33:47,364] [INFO] [config.py:1003:print]   fp16_master_weights_and_gradients  False
+[2025-07-02 20:33:47,364] [INFO] [config.py:1003:print]   global_rank .................. 0
+[2025-07-02 20:33:47,364] [INFO] [config.py:1003:print]   grad_accum_dtype ............. None
+[2025-07-02 20:33:47,364] [INFO] [config.py:1003:print]   gradient_accumulation_steps .. 2
+[2025-07-02 20:33:47,364] [INFO] [config.py:1003:print]   gradient_clipping ............ 0.0
+[2025-07-02 20:33:47,364] [INFO] [config.py:1003:print]   gradient_predivide_factor .... 1.0
+[2025-07-02 20:33:47,364] [INFO] [config.py:1003:print]   graph_harvesting ............. False
+[2025-07-02 20:33:47,364] [INFO] [config.py:1003:print]   hybrid_engine ................ enabled=False max_out_tokens=512 inference_tp_size=1 r
+elease_inference_cache=False pin_parameters=True tp_gather_partition_size=8
+[2025-07-02 20:33:47,364] [INFO] [config.py:1003:print]   initial_dynamic_scale ........ 1
+[2025-07-02 20:33:47,364] [INFO] [config.py:1003:print]   load_universal_checkpoint .... False
+[2025-07-02 20:33:47,364] [INFO] [config.py:1003:print]   loss_scale ................... 1.0
+[2025-07-02 20:33:47,364] [INFO] [config.py:1003:print]   memory_breakdown ............. False
+[2025-07-02 20:33:47,364] [INFO] [config.py:1003:print]   mics_hierarchial_params_gather  False
+[2025-07-02 20:33:47,364] [INFO] [config.py:1003:print]   mics_shard_size .............. -1
+[2025-07-02 20:33:47,365] [INFO] [config.py:1003:print]   monitor_config ............... tensorboard=TensorBoardConfig(enabled=False, output_pa
+th='', job_name='DeepSpeedJobName') comet=CometConfig(enabled=False, samples_log_interval=100, project=None, workspace=None, api_key=None, expe
+riment_name=None, experiment_key=None, online=None, mode=None) wandb=WandbConfig(enabled=False, group=None, team=None, project='deepspeed') csv
+_monitor=CSVConfig(enabled=False, output_path='', job_name='DeepSpeedJobName')
+[2025-07-02 20:33:47,365] [INFO] [config.py:1003:print]   nebula_config ................ {
+    "enabled": false,
+    "persistent_storage_path": null,
+    "persistent_time_interval": 100,
+    "num_of_version_in_retention": 2,
+    "enable_nebula_load": true,
+    "load_path": null
+}
+[2025-07-02 20:33:47,365] [INFO] [config.py:1003:print]   optimizer_legacy_fusion ...... False
+[2025-07-02 20:33:47,365] [INFO] [config.py:1003:print]   optimizer_name ............... None
+[2025-07-02 20:33:47,365] [INFO] [config.py:1003:print]   optimizer_params ............. None
+[2025-07-02 20:33:47,365] [INFO] [config.py:1003:print]   pipeline ..................... {'stages': 'auto', 'partition': 'best', 'seed_layers':
+ False, 'activation_checkpoint_interval': 0, 'pipe_partitioned': True, 'grad_partitioned': True}
+[2025-07-02 20:33:47,365] [INFO] [config.py:1003:print]   pld_enabled .................. False
+[2025-07-02 20:33:47,365] [INFO] [config.py:1003:print]   pld_params ................... False
+[2025-07-02 20:33:47,365] [INFO] [config.py:1003:print]   prescale_gradients ........... False
+[2025-07-02 20:33:47,365] [INFO] [config.py:1003:print]   scheduler_name ............... None
+[2025-07-02 20:33:47,365] [INFO] [config.py:1003:print]   scheduler_params ............. None
+[2025-07-02 20:33:47,365] [INFO] [config.py:1003:print]   seq_parallel_communication_data_type  torch.float32
+[2025-07-02 20:33:47,365] [INFO] [config.py:1003:print]   sparse_attention ............. None
+[2025-07-02 20:33:47,365] [INFO] [config.py:1003:print]   sparse_gradients_enabled ..... False
+[2025-07-02 20:33:47,365] [INFO] [config.py:1003:print]   steps_per_print .............. inf
+[2025-07-02 20:33:47,366] [INFO] [config.py:1003:print]   timers_config ................ enabled=True synchronized=True
+[2025-07-02 20:33:47,366] [INFO] [config.py:1003:print]   train_batch_size ............. 32
+[2025-07-02 20:33:47,366] [INFO] [config.py:1003:print]   train_micro_batch_size_per_gpu  4
+[2025-07-02 20:33:47,366] [INFO] [config.py:1003:print]   use_data_before_expert_parallel_  False
+[2025-07-02 20:33:47,366] [INFO] [config.py:1003:print]   use_node_local_storage ....... False
+[2025-07-02 20:33:47,366] [INFO] [config.py:1003:print]   wall_clock_breakdown ......... False
+[2025-07-02 20:33:47,366] [INFO] [config.py:1003:print]   weight_quantization_config ... None
+[2025-07-02 20:33:47,366] [INFO] [config.py:1003:print]   world_size ................... 4
+[2025-07-02 20:33:47,366] [INFO] [config.py:1003:print]   zero_allow_untested_optimizer  False
+[2025-07-02 20:33:47,366] [INFO] [config.py:1003:print]   zero_config .................. stage=3 contiguous_gradients=True reduce_scatter=True
+reduce_bucket_size=500000000 use_multi_rank_bucket_allreduce=True allgather_partitions=True allgather_bucket_size=500000000 overlap_comm=True l
+oad_from_fp32_weights=True elastic_checkpoint=False offload_param=DeepSpeedZeroOffloadParamConfig(device='none', nvme_path=None, buffer_count=5
+, buffer_size=100000000, max_in_cpu=1000000000, pin_memory=True) offload_optimizer=DeepSpeedZeroOffloadOptimizerConfig(device='none', nvme_path
+=None, buffer_count=4, pin_memory=True, pipeline_read=False, pipeline_write=False, fast_init=False, ratio=1.0) sub_group_size=1000000000 cpu_of
+fload_param=None cpu_offload_use_pin_memory=None cpu_offload=None prefetch_bucket_size=50000000 param_persistence_threshold=100000 model_persis
+tence_threshold=9223372036854775807 max_live_parameters=1000000000 max_reuse_distance=1000000000 gather_16bit_weights_on_model_save=True use_al
+l_reduce_for_fetch_params=False stage3_gather_fp16_weights_on_model_save=False ignore_unused_parameters=True legacy_stage1=False round_robin_gr
+adients=False zero_hpz_partition_size=1 zero_quantized_weights=False zero_quantized_nontrainable_weights=False zero_quantized_gradients=False m
+ics_shard_size=-1 mics_hierarchical_params_gather=False memory_efficient_linear=True pipeline_loading_checkpoint=False override_module_apply=Tr
+ue
+[2025-07-02 20:33:47,366] [INFO] [config.py:1003:print]   zero_enabled ................. True
+[2025-07-02 20:33:47,366] [INFO] [config.py:1003:print]   zero_force_ds_cpu_optimizer .. True
+[2025-07-02 20:33:47,366] [INFO] [config.py:1003:print]   zero_optimization_stage ...... 3
+[2025-07-02 20:33:47,366] [INFO] [config.py:989:print_user_config]   json = {
+    "zero_optimization": {
+        "stage": 3,
+        "offload_optimizer": {
+            "device": "none",
+            "pin_memory": true
+        },
+        "offload_param": {
+            "device": "none",
+            "pin_memory": true
+        },
+        "overlap_comm": true,
+        "contiguous_gradients": true,
+        "reduce_bucket_size": "auto",
+        "stage3_prefetch_bucket_size": "auto",
+        "stage3_param_persistence_threshold": "auto",
+        "sub_group_size": 1.000000e+09,
+        "stage3_max_live_parameters": 1.000000e+09,
+        "stage3_max_reuse_distance": 1.000000e+09,
+        "stage3_gather_16bit_weights_on_model_save": true
+    },
+    "train_batch_size": 32,
+    "train_micro_batch_size_per_gpu": 4,
+    "gradient_accumulation_steps": 2,
+    "bf16": {
+        "enabled": true
+    },
+    "steps_per_print": inf,
+    "fp16": {
+        "enabled": false
+    },
+    "zero_optimization.reduce_bucket_size": 1.677722e+07,
+    "zero_optimization.stage3_param_persistence_threshold": 4.096000e+04,
+    "zero_optimization.stage3_prefetch_bucket_size": 1.509949e+07
+}
+[2025-07-02 20:33:47,368][trainer][INFO] - NPO Trainer loaded, output_dir: ./saves/unlearn/easy_to_hard/extraction_strength/tofu_Llama-3.1-8B-I
+nstruct_forget01_NPO
+[2025-07-02 20:33:51,354] [WARNING] [engine.py:1232:_do_optimizer_sanity_check] **** You are using ZeRO with an untested optimizer, proceed wit
+h caution *****
+Parameter Offload: Total persistent parameters: 266240 in 65 params
+wandb: WARNING The `run_name` is currently set to the same value as `TrainingArguments.output_dir`. If this was not intended, please specify a
+different run name by setting the `TrainingArguments.run_name` parameter.
+  0%|                                                                                                                   | 0/10 [00:00<?, ?it/s]
+[2025-07-02 20:33:58,840][trainer.base][WARNING] - Custom evaluator can be run with this Trainer only when a single accelerator process is runn
+ing.
+[Curriculum]: Epoch 0 | Using 1/5 chunks | total samples: 8
+Training dataset updated at epoch 0
+`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+/home/public/jcheng2/miniconda3/envs/un/lib/python3.11/site-packages/torch/utils/checkpoint.py:295: FutureWarning: `torch.cpu.amp.autocast(args
+...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with torch.enable_grad(), device_autocast_ctx, torch.cpu.amp.autocast(**ctx.cpu_autocast_kwargs):  # type: ignore[attr-defined]
+/home/public/jcheng2/miniconda3/envs/un/lib/python3.11/site-packages/torch/utils/checkpoint.py:295: FutureWarning: `torch.cpu.amp.autocast(args
+...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with torch.enable_grad(), device_autocast_ctx, torch.cpu.amp.autocast(**ctx.cpu_autocast_kwargs):  # type: ignore[attr-defined]
+/home/public/jcheng2/miniconda3/envs/un/lib/python3.11/site-packages/torch/utils/checkpoint.py:295: FutureWarning: `torch.cpu.amp.autocast(args
+...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with torch.enable_grad(), device_autocast_ctx, torch.cpu.amp.autocast(**ctx.cpu_autocast_kwargs):  # type: ignore[attr-defined]
+/home/public/jcheng2/miniconda3/envs/un/lib/python3.11/site-packages/torch/utils/checkpoint.py:295: FutureWarning: `torch.cpu.amp.autocast(args
+...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with torch.enable_grad(), device_autocast_ctx, torch.cpu.amp.autocast(**ctx.cpu_autocast_kwargs):  # type: ignore[attr-defined]
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+[Curriculum]: Epoch 0 | Using 1/5 chunks | total samples: 8
+Training dataset updated at epoch 0
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+ 10%|██████████▋                                                                                                | 1/10 [00:26<03:57, 26.42s/it]
+[Curriculum]: Epoch 2 | Using 2/5 chunks | total samples: 16
+Training dataset updated at epoch 2.0
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+ 20%|█████████████████████▍                                                                                     | 2/10 [00:32<01:54, 14.27s/it]
+[Curriculum]: Epoch 3 | Using 2/5 chunks | total samples: 16
+Training dataset updated at epoch 3.0
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+ 30%|████████████████████████████████                                                                           | 3/10 [00:49<01:49, 15.67s/it]
+[Curriculum]: Epoch 4 | Using 3/5 chunks | total samples: 24
+Training dataset updated at epoch 4.0
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+ 40%|██████████████████████████████████████████▊                                                                | 4/10 [00:55<01:10, 11.71s/it]
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+{'loss': 7.9905, 'grad_norm': 123.96007922208827, 'learning_rate': 5.555555555555557e-06, 'epoch': 6.0}
+ 50%|█████████████████████████████████████████████████████▌                                                     | 5/10 [01:12<01:08, 13.71s/it]
+[Curriculum]: Epoch 6 | Using 4/5 chunks | total samples: 32
+Training dataset updated at epoch 6.0
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+ 60%|████████████████████████████████████████████████████████████████▏                                          | 6/10 [01:35<01:07, 16.84s/it]
+[Curriculum]: Epoch 6 | Using 4/5 chunks | total samples: 32
+Training dataset updated at epoch 6.0
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+ 70%|██████████████████████████████████████████████████████████████████████████▉                                | 7/10 [01:58<00:56, 18.86s/it]
+[Curriculum]: Epoch 7 | Using 4/5 chunks | total samples: 32
+Training dataset updated at epoch 7.0
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+
+^[[>0;276;0cInvalidate trace cache @ step 422 and module 454: cache has only 422 modules
+ 80%|█████████████████████████████████████████████████████████████████████████████████████▌                     | 8/10 [02:21<00:40, 20.23s/it]
+[Curriculum]: Epoch 8 | Using 5/5 chunks | total samples: 40
+Training dataset updated at epoch 8.0
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+ 90%|████████████████████████████████████████████████████████████████████████████████████████████████▎          | 9/10 [02:44<00:21, 21.14s/it]
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+[Curriculum]: Epoch 9 | Using 5/5 chunks | total samples: 40
+Training dataset updated at epoch 9.0
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+{'loss': 3.8067, 'grad_norm': 58.00121410267024, 'learning_rate': 0.0, 'epoch': 9.33}
+{'train_runtime': 187.8231, 'train_samples_per_second': 2.13, 'train_steps_per_second': 0.053, 'train_loss': 5.8986211776733395, 'epoch': 9.33}
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 10/10 [03:07<00:00, 18.76s/it]
+wandb:
+wandb: 🚀 View run tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-extraction_strength at: https://wandb.ai/jialicheng/Curriculum%20Unlear
+ning/runs/tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-extraction_strength
+wandb: Find logs at: wandb/run-20250702_203327-tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-extraction_strength/logs
+wandb:
+wandb: 🚀 View run tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-extraction_strength at: https://wandb.ai/jialicheng/Curriculum%20Unlear
+ning/runs/tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-extraction_strength
+wandb: Find logs at: wandb/run-20250702_203327-tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-extraction_strength/logs
+wandb:
+wandb: 🚀 View run tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-extraction_strength at: https://wandb.ai/jialicheng/Curriculum%20Unlear
+ning/runs/tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-extraction_strength
+wandb: Find logs at: wandb/run-20250702_203328-tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-extraction_strength/logs
+[2025-07-02 20:37:31,337][trainer.base][WARNING] - Custom evaluator can be run with this Trainer only when a single accelerator process is runn
+ing.
+wandb:
+wandb: 🚀 View run tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-extraction_strength at: https://wandb.ai/jialicheng/Curriculum%20Unlear
+ning/runs/tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-extraction_strength
+wandb: Find logs at: wandb/run-20250702_203325-tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-extraction_strength/logs
+easy_to_hard/extraction_strength/tofu_Llama-3.1-8B-Instruct_forget01_NPO Eval Not Found
+[2025-07-02 20:37:40,403] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Warning: The cache directory for DeepSpeed Triton autotune, /home/grad/doc/2025/jcheng2/.triton/autotune, appears to be on an NFS system. While
+ this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR envir
+onment variable to a non-NFS path.
+wandb: Currently logged in as: jialicheng to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.21.0
+wandb: Run data is saved locally in /home/public/jcheng2/open-unlearning/wandb/run-20250702_203744-tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy
+_to_hard-extraction_strength
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Resuming run tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-extraction_strength
+wandb: ⭐️ View project at https://wandb.ai/jialicheng/Curriculum%20Unlearning
+wandb: 🚀 View run at https://wandb.ai/jialicheng/Curriculum%20Unlearning/runs/tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-extraction_
+strength
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████████████████████████████| 4/4 [00:03<00:00,  1.10it/s]
+[2025-07-02 20:37:50,198][model][INFO] - Setting pad_token as eos token: <|eot_id|>
+[2025-07-02 20:37:50,201][evaluator][INFO] - Evaluations stored in the experiment directory: saves/unlearn/easy_to_hard/extraction_strength/tof
+u_Llama-3.1-8B-Instruct_forget01_NPO/evals
+[2025-07-02 20:37:50,203][evaluator][INFO] - ***** Running TOFU evaluation suite *****
+[2025-07-02 20:37:50,203][evaluator][INFO] - Fine-grained evaluations will be saved to: saves/unlearn/easy_to_hard/extraction_strength/tofu_Lla
+ma-3.1-8B-Instruct_forget01_NPO/evals/TOFU_EVAL.json
+[2025-07-02 20:37:50,203][evaluator][INFO] - Aggregated evaluations will be summarised in: saves/unlearn/easy_to_hard/extraction_strength/tofu_
+Llama-3.1-8B-Instruct_forget01_NPO/evals/TOFU_SUMMARY.json
+[2025-07-02 20:37:50,857][metrics][INFO] - Loading evaluations from saves/eval/tofu_Llama-3.1-8B-Instruct_retain99/TOFU_EVAL.json
+[2025-07-02 20:37:50,870][metrics][INFO] - Evaluating forget_Q_A_PARA_Prob
+Calculating loss: 100%|██████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:01<00:00,  1.63it/s]
+Evaluated 40 examples
+[2025-07-02 20:37:52,493][metrics][INFO] - Loading evaluations from saves/eval/tofu_Llama-3.1-8B-Instruct_retain99/TOFU_EVAL.json
+[2025-07-02 20:37:52,511][metrics][INFO] - Evaluating forget_Q_A_PERT_Prob
+Calculating loss: 100%|██████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:04<00:00,  2.18s/it]
+Evaluated 40 examples
+[2025-07-02 20:37:56,868][metrics][INFO] - Loading evaluations from saves/eval/tofu_Llama-3.1-8B-Instruct_retain99/TOFU_EVAL.json
+[2025-07-02 20:37:56,877][metrics][INFO] - Evaluating forget_truth_ratio
+[2025-07-02 20:37:56,878][metrics][INFO] - Loading evaluations from saves/eval/tofu_Llama-3.1-8B-Instruct_retain99/TOFU_EVAL.json
+[2025-07-02 20:37:56,886][metrics][INFO] - Evaluating forget_quality
+[2025-07-02 20:37:56,887][evaluator][INFO] - Result for metric forget_quality:  0.5786001416508443
+[2025-07-02 20:37:57,193][metrics][INFO] - Evaluating forget_Q_A_Prob
+Calculating loss: 100%|██████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:00<00:00,  2.33it/s]
+Evaluated 40 examples
+[2025-07-02 20:37:58,052][evaluator][INFO] - Result for metric forget_Q_A_Prob: 0.23560613207519054
+[2025-07-02 20:37:58,354][metrics][INFO] - Evaluating forget_Q_A_ROUGE
+Calculating text similarity:   0%|                                                                                       | 0/2 [00:00<?, ?it/s]
+Starting from v4.46, the `logits` model output will have the same type as the model (except at train time, where it will always be FP32)
+Calculating text similarity: 100%|███████████████████████████████████████████████████████████████████████████████| 2/2 [00:04<00:00,  2.15s/it]
+Evaluated 40 examples
+[2025-07-02 20:38:02,664][evaluator][INFO] - Result for metric forget_Q_A_ROUGE:        0.48735835241141884
+[2025-07-02 20:38:02,960][metrics][INFO] - Evaluating retain_Q_A_Prob
+Calculating loss: 100%|████████████████████████████████████████████████████████████████████████████████████████| 13/13 [00:06<00:00,  1.87it/s]
+Evaluated 400 examples
+[2025-07-02 20:38:10,305][metrics][INFO] - Evaluating retain_Q_A_ROUGE
+Calculating text similarity: 100%|█████████████████████████████████████████████████████████████████████████████| 13/13 [00:29<00:00,  2.30s/it]
+Evaluated 400 examples
+[2025-07-02 20:38:40,643][metrics][INFO] - Evaluating retain_Q_A_PARA_Prob
+Calculating loss: 100%|████████████████████████████████████████████████████████████████████████████████████████| 13/13 [00:07<00:00,  1.71it/s]
+Evaluated 400 examples
+[2025-07-02 20:38:48,612][metrics][INFO] - Evaluating retain_Q_A_PERT_Prob
+Calculating loss: 100%|████████████████████████████████████████████████████████████████████████████████████████| 13/13 [00:37<00:00,  2.85s/it]
+Evaluated 400 examples
+[2025-07-02 20:39:25,721][metrics][INFO] - Evaluating retain_Truth_Ratio
+[2025-07-02 20:39:26,147][metrics][INFO] - Evaluating ra_Q_A_Prob
+Calculating loss: 100%|██████████████████████████████████████████████████████████████████████████████████████████| 4/4 [00:01<00:00,  3.25it/s]
+Evaluated 100 examples
+[2025-07-02 20:39:27,662][metrics][INFO] - Evaluating ra_Q_A_PERT_Prob
+Calculating loss: 100%|██████████████████████████████████████████████████████████████████████████████████████████| 4/4 [00:03<00:00,  1.11it/s]
+Evaluated 100 examples
+[2025-07-02 20:39:31,254][metrics][INFO] - Evaluating ra_Q_A_Prob_normalised
+[2025-07-02 20:39:31,598][metrics][INFO] - Evaluating ra_Q_A_ROUGE
+Calculating text similarity: 100%|███████████████████████████████████████████████████████████████████████████████| 4/4 [00:05<00:00,  1.30s/it]
+Evaluated 100 examples
+[2025-07-02 20:39:36,806][metrics][INFO] - Skipping ra_Truth_Ratio's precompute ra_Q_A_Prob, already evaluated.
+[2025-07-02 20:39:36,806][metrics][INFO] - Skipping ra_Truth_Ratio's precompute ra_Q_A_PERT_Prob, already evaluated.
+[2025-07-02 20:39:36,806][metrics][INFO] - Evaluating ra_Truth_Ratio
+[2025-07-02 20:39:37,096][metrics][INFO] - Evaluating wf_Q_A_Prob
+Calculating loss: 100%|██████████████████████████████████████████████████████████████████████████████████████████| 4/4 [00:01<00:00,  3.16it/s]
+Evaluated 117 examples
+[2025-07-02 20:39:38,680][metrics][INFO] - Evaluating wf_Q_A_PERT_Prob
+Calculating loss: 100%|██████████████████████████████████████████████████████████████████████████████████████████| 4/4 [00:03<00:00,  1.05it/s]
+Evaluated 117 examples
+[2025-07-02 20:39:42,506][metrics][INFO] - Evaluating wf_Q_A_Prob_normalised
+[2025-07-02 20:39:42,794][metrics][INFO] - Evaluating wf_Q_A_ROUGE
+Calculating text similarity: 100%|███████████████████████████████████████████████████████████████████████████████| 4/4 [00:07<00:00,  1.75s/it]
+Evaluated 117 examples
+[2025-07-02 20:39:49,816][metrics][INFO] - Skipping wf_Truth_Ratio's precompute wf_Q_A_Prob, already evaluated.
+[2025-07-02 20:39:49,816][metrics][INFO] - Skipping wf_Truth_Ratio's precompute wf_Q_A_PERT_Prob, already evaluated.
+[2025-07-02 20:39:49,816][metrics][INFO] - Evaluating wf_Truth_Ratio
+[2025-07-02 20:39:49,817][metrics][INFO] - Evaluating model_utility
+[2025-07-02 20:39:49,818][evaluator][INFO] - Result for metric model_utility:   0.63203041238741
+[2025-07-02 20:39:50,573][metrics][INFO] - Loading evaluations from saves/eval/tofu_Llama-3.1-8B-Instruct_retain99/TOFU_EVAL.json
+[2025-07-02 20:39:50,593][metrics][INFO] - Evaluating mia_min_k
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:00<00:00,  3.05it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:00<00:00,  3.14it/s]
+[2025-07-02 20:39:51,890][metrics][INFO] - Loading evaluations from saves/eval/tofu_Llama-3.1-8B-Instruct_retain99/TOFU_EVAL.json
+[2025-07-02 20:39:51,898][metrics][INFO] - Evaluating privleak
+[2025-07-02 20:39:51,898][evaluator][INFO] - Result for metric privleak:        -54.374999989124994
+[2025-07-02 20:39:52,247][metrics][INFO] - Evaluating extraction_strength
+Calculating ES: 100%|████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:00<00:00,  2.90it/s]
+Evaluated 40 examples
+[2025-07-02 20:39:52,939][evaluator][INFO] - Result for metric extraction_strength:     0.17929456664363613
+wandb:
+wandb: 🚀 View run tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-extraction_strength at: https://wandb.ai/jialicheng/Curriculum%20Unlear
+ning/runs/tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-extraction_strength
+wandb: Find logs at: wandb/run-20250702_203744-tofu-forget01-Llama-3.1-8B-Instruct-NPO-easy_to_hard-extraction_strength/logs
+hard_to_easy/loss/tofu_Llama-3.1-8B-Instruct_forget01_NPO Model Not Found
+[2025-07-02 20:39:58,729] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Warning: The cache directory for DeepSpeed Triton autotune, /home/grad/doc/2025/jcheng2/.triton/autotune, appears to be on an NFS system. While
+ this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR envir
+onment variable to a non-NFS path.
+W0702 20:40:00.646000 139743983159104 torch/distributed/run.py:779]
+W0702 20:40:00.646000 139743983159104 torch/distributed/run.py:779] *****************************************
+W0702 20:40:00.646000 139743983159104 torch/distributed/run.py:779] Setting OMP_NUM_THREADS environment variable for each process to be 1 in de
+fault, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed.
+W0702 20:40:00.646000 139743983159104 torch/distributed/run.py:779] *****************************************
+[2025-07-02 20:40:05,818] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-07-02 20:40:05,856] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Warning: The cache directory for DeepSpeed Triton autotune, /home/grad/doc/2025/jcheng2/.triton/autotune, appears to be on an NFS system. While
+ this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR envir
+onment variable to a non-NFS path.
+[2025-07-02 20:40:06,080] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Warning: The cache directory for DeepSpeed Triton autotune, /home/grad/doc/2025/jcheng2/.triton/autotune, appears to be on an NFS system. While
+ this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR envir
+onment variable to a non-NFS path.
+Warning: The cache directory for DeepSpeed Triton autotune, /home/grad/doc/2025/jcheng2/.triton/autotune, appears to be on an NFS system. While
+ this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR envir
+onment variable to a non-NFS path.
+[2025-07-02 20:40:06,787] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Warning: The cache directory for DeepSpeed Triton autotune, /home/grad/doc/2025/jcheng2/.triton/autotune, appears to be on an NFS system. While
+ this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR envir
+onment variable to a non-NFS path.
+wandb: Currently logged in as: jialicheng to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Currently logged in as: jialicheng to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Currently logged in as: jialicheng to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.21.0
+wandb: Run data is saved locally in /home/public/jcheng2/open-unlearning/wandb/run-20250702_204010-tofu-forget01-Llama-3.1-8B-Instruct-NPO-hard
+_to_easy-loss
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run tofu-forget01-Llama-3.1-8B-Instruct-NPO-hard_to_easy-loss
+wandb: ⭐️ View project at https://wandb.ai/jialicheng/Curriculum%20Unlearning
+wandb: 🚀 View run at https://wandb.ai/jialicheng/Curriculum%20Unlearning/runs/tofu-forget01-Llama-3.1-8B-Instruct-NPO-hard_to_easy-loss
+wandb: Tracking run with wandb version 0.21.0
+wandb: Run data is saved locally in /home/public/jcheng2/open-unlearning/wandb/run-20250702_204010-tofu-forget01-Llama-3.1-8B-Instruct-NPO-hard
+_to_easy-loss
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Resuming run tofu-forget01-Llama-3.1-8B-Instruct-NPO-hard_to_easy-loss
+wandb: ⭐️ View project at https://wandb.ai/jialicheng/Curriculum%20Unlearning
+wandb: 🚀 View run at https://wandb.ai/jialicheng/Curriculum%20Unlearning/runs/tofu-forget01-Llama-3.1-8B-Instruct-NPO-hard_to_easy-loss
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on
+CPU with `model.to('cuda')`.
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on
+CPU with `model.to('cuda')`.
+Loading checkpoint shards:   0%|                                                                                         | 0/4 [00:00<?, ?it/s]
+wandb: Currently logged in as: jialicheng to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.21.0
+wandb: Run data is saved locally in /home/public/jcheng2/open-unlearning/wandb/run-20250702_204011-tofu-forget01-Llama-3.1-8B-Instruct-NPO-hard
+_to_easy-loss
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Resuming run tofu-forget01-Llama-3.1-8B-Instruct-NPO-hard_to_easy-loss
+wandb: ⭐️ View project at https://wandb.ai/jialicheng/Curriculum%20Unlearning
+wandb: 🚀 View run at https://wandb.ai/jialicheng/Curriculum%20Unlearning/runs/tofu-forget01-Llama-3.1-8B-Instruct-NPO-hard_to_easy-loss
+Loading checkpoint shards:  50%|████████████████████████████████████████▌                                        | 2/4 [00:00<00:00,  4.93it/s]
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on
+CPU with `model.to('cuda')`.
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████████████████████████████| 4/4 [00:00<00:00,  5.46it/s]
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████████████████████████████| 4/4 [00:00<00:00,  4.99it/s]
+Loading checkpoint shards:   0%|                                                                                         | 0/4 [00:00<?, ?it/s]
+wandb: Tracking run with wandb version 0.21.0
+wandb: Run data is saved locally in /home/public/jcheng2/open-unlearning/wandb/run-20250702_204012-tofu-forget01-Llama-3.1-8B-Instruct-NPO-hard
+_to_easy-loss
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Resuming run tofu-forget01-Llama-3.1-8B-Instruct-NPO-hard_to_easy-loss
+wandb: ⭐️ View project at https://wandb.ai/jialicheng/Curriculum%20Unlearning
+wandb: 🚀 View run at https://wandb.ai/jialicheng/Curriculum%20Unlearning/runs/tofu-forget01-Llama-3.1-8B-Instruct-NPO-hard_to_easy-loss
+Loading checkpoint shards:  50%|████████████████████████████████████████▌                                        | 2/4 [00:00<00:00,  4.90it/s]
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on
+CPU with `model.to('cuda')`.
+[2025-07-02 20:40:13,360][model][INFO] - Setting pad_token as eos token: <|eot_id|>
+[2025-07-02 20:40:13,508][model][INFO] - Setting pad_token as eos token: <|eot_id|>
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████████████████████████████| 4/4 [00:00<00:00,  4.93it/s]
+Loading checkpoint shards:  75%|████████████████████████████████████████████████████████████▊                    | 3/4 [00:00<00:00,  5.47it/s]
+[2025-07-02 20:40:14,348][model][INFO] - Setting pad_token as eos token: <|eot_id|>
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████████████████████████████| 4/4 [00:00<00:00,  5.58it/s]
+[2025-07-02 20:40:14,434][evaluator][INFO] - Evaluations stored in the experiment directory: ./saves/unlearn/hard_to_easy/loss/tofu_Llama-3.1-8
+B-Instruct_forget01_NPO
+[2025-07-02 20:40:14,497] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-07-02 20:40:14,637][evaluator][INFO] - Evaluations stored in the experiment directory: ./saves/unlearn/hard_to_easy/loss/tofu_Llama-3.1-8
+B-Instruct_forget01_NPO
+[2025-07-02 20:40:14,732] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-07-02 20:40:14,894][model][INFO] - Setting pad_token as eos token: <|eot_id|>
+/home/public/jcheng2/open-unlearning/src/trainer/base.py:49: FutureWarning: You are using `torch.load` with `weights_only=False` (the current d
+efault value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary
+code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, t
+he default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary ob
+jects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe
+_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please ope
+n an issue on GitHub for any issues related to this experimental feature.
+  self.sample_difficulty = torch.load(
+/home/public/jcheng2/open-unlearning/src/trainer/base.py:49: FutureWarning: You are using `torch.load` with `weights_only=False` (the current d
+efault value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary
+code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, t
+he default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary ob
+jects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe
+_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please ope
+n an issue on GitHub for any issues related to this experimental feature.
+  self.sample_difficulty = torch.load(
+[2025-07-02 20:40:15,297][evaluator][INFO] - Evaluations stored in the experiment directory: ./saves/unlearn/hard_to_easy/loss/tofu_Llama-3.1-8
+B-Instruct_forget01_NPO
+[2025-07-02 20:40:15,381] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-07-02 20:40:15,381] [INFO] [comm.py:683:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+/home/public/jcheng2/open-unlearning/src/trainer/base.py:49: FutureWarning: You are using `torch.load` with `weights_only=False` (the current d
+efault value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary
+code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, t
+he default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary ob
+jects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe
+_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please ope
+n an issue on GitHub for any issues related to this experimental feature.
+  self.sample_difficulty = torch.load(
+[2025-07-02 20:40:15,932][evaluator][INFO] - Evaluations stored in the experiment directory: ./saves/unlearn/hard_to_easy/loss/tofu_Llama-3.1-8
+B-Instruct_forget01_NPO
+[2025-07-02 20:40:16,025] [INFO] [comm.py:652:init_distributed] cdb=None
+/home/public/jcheng2/open-unlearning/src/trainer/base.py:49: FutureWarning: You are using `torch.load` with `weights_only=False` (the current d
+efault value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary
+code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, t
+he default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary ob
+jects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe
+_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please ope
+n an issue on GitHub for any issues related to this experimental feature.
+  self.sample_difficulty = torch.load(
+[2025-07-02 20:40:26,495] [INFO] [config.py:733:__init__] Config mesh_device None world_size = 4
+[2025-07-02 20:40:27,562] [INFO] [logging.py:128:log_dist] [Rank 0] DeepSpeed info: version=0.15.4, git-hash=unknown, git-branch=unknown
+[2025-07-02 20:40:27,563] [INFO] [config.py:733:__init__] Config mesh_device None world_size = 4
+[2025-07-02 20:40:28,488] [INFO] [config.py:733:__init__] Config mesh_device None world_size = 4
+[2025-07-02 20:40:29,826] [INFO] [config.py:733:__init__] Config mesh_device None world_size = 4
+[2025-07-02 20:40:30,296] [INFO] [config.py:733:__init__] Config mesh_device None world_size = 4
+[2025-07-02 20:40:30,300] [INFO] [logging.py:128:log_dist] [Rank 0] DeepSpeed Flops Profiler Enabled: False
+[2025-07-02 20:40:30,302] [INFO] [logging.py:128:log_dist] [Rank 0] Creating ZeRO Offload
+[2025-07-02 20:40:30,304] [INFO] [config.py:733:__init__] Config mesh_device None world_size = 4
+[2025-07-02 20:40:30,317] [INFO] [config.py:733:__init__] Config mesh_device None world_size = 4
+[2025-07-02 20:40:30,524] [INFO] [utils.py:781:see_memory_usage] DeepSpeedZeRoOffload initialize [begin]
+[2025-07-02 20:40:30,525] [INFO] [utils.py:782:see_memory_usage] MA 14.96 GB         Max_MA 14.96 GB         CA 15.08 GB         Max_CA 15 GB
+[2025-07-02 20:40:30,525] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 24.88 GB, percent = 2.5%
+[2025-07-02 20:40:30,529] [INFO] [config.py:733:__init__] Config mesh_device None world_size = 4
+Parameter Offload: Total persistent parameters: 266240 in 65 params
+[2025-07-02 20:40:31,148][trainer][INFO] - NPO Trainer loaded, output_dir: ./saves/unlearn/hard_to_easy/loss/tofu_Llama-3.1-8B-Instruct_forget0
+1_NPO
+[2025-07-02 20:40:31,168][trainer][INFO] - NPO Trainer loaded, output_dir: ./saves/unlearn/hard_to_easy/loss/tofu_Llama-3.1-8B-Instruct_forget0
+1_NPO
+[2025-07-02 20:40:31,173][trainer][INFO] - NPO Trainer loaded, output_dir: ./saves/unlearn/hard_to_easy/loss/tofu_Llama-3.1-8B-Instruct_forget0
+1_NPO
+[2025-07-02 20:40:31,349] [INFO] [utils.py:781:see_memory_usage] DeepSpeedZeRoOffload initialize [end]
+[2025-07-02 20:40:31,350] [INFO] [utils.py:782:see_memory_usage] MA 3.74 GB         Max_MA 15.2 GB         CA 15.33 GB         Max_CA 15 GB
+[2025-07-02 20:40:31,351] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 25.03 GB, percent = 2.5%
+[2025-07-02 20:40:31,352] [INFO] [config.py:999:print] DeepSpeedEngine configuration:
+[2025-07-02 20:40:31,352] [INFO] [config.py:1003:print]   activation_checkpointing_config  {
+    "partition_activations": false,
+    "contiguous_memory_optimization": false,
+    "cpu_checkpointing": false,
+    "number_checkpoints": null,
+    "synchronize_checkpoint_boundary": false,
+    "profile": false
+}
+[2025-07-02 20:40:31,352] [INFO] [config.py:1003:print]   aio_config ................... {'block_size': 1048576, 'queue_depth': 8, 'thread_coun
+t': 1, 'single_submit': False, 'overlap_events': True, 'use_gds': False}
+[2025-07-02 20:40:31,352] [INFO] [config.py:1003:print]   amp_enabled .................. False
+[2025-07-02 20:40:31,352] [INFO] [config.py:1003:print]   amp_params ................... False
+[2025-07-02 20:40:31,353] [INFO] [config.py:1003:print]   autotuning_config ............ {
+    "enabled": false,
+    "start_step": null,
+    "end_step": null,
+    "metric_path": null,
+    "arg_mappings": null,
+    "metric": "throughput",
+    "model_info": null,
+    "results_dir": "autotuning_results",
+    "exps_dir": "autotuning_exps",
+    "overwrite": true,
+    "fast": true,
+    "start_profile_step": 3,
+    "end_profile_step": 5,
+    "tuner_type": "gridsearch",
+    "tuner_early_stopping": 5,
+    "tuner_num_trials": 50,
+    "model_info_path": null,
+    "mp_size": 1,
+    "max_train_batch_size": null,
+    "min_train_batch_size": 1,
+    "max_train_micro_batch_size_per_gpu": 1.024000e+03,
+    "min_train_micro_batch_size_per_gpu": 1,
+    "num_tuning_micro_batch_sizes": 3
+}
+[2025-07-02 20:40:31,353] [INFO] [config.py:1003:print]   bfloat16_enabled ............. True
+[2025-07-02 20:40:31,353] [INFO] [config.py:1003:print]   bfloat16_immediate_grad_update  False
+[2025-07-02 20:40:31,353] [INFO] [config.py:1003:print]   checkpoint_parallel_write_pipeline  False
+[2025-07-02 20:40:31,353] [INFO] [config.py:1003:print]   checkpoint_tag_validation_enabled  True
+[2025-07-02 20:40:31,353] [INFO] [config.py:1003:print]   checkpoint_tag_validation_fail  False
+[2025-07-02 20:40:31,353] [INFO] [config.py:1003:print]   comms_config ................. <deepspeed.comm.config.DeepSpeedCommsConfig object at
+0x7f2563918550>
+[2025-07-02 20:40:31,353] [INFO] [config.py:1003:print]   communication_data_type ...... None
+[2025-07-02 20:40:31,353] [INFO] [config.py:1003:print]   compression_config ........... {'weight_quantization': {'shared_parameters': {'enable
+d': False, 'quantizer_kernel': False, 'schedule_offset': 0, 'quantize_groups': 1, 'quantize_verbose': False, 'quantization_type': 'symmetric',
+'quantize_weight_in_forward': False, 'rounding': 'nearest', 'fp16_mixed_quantize': False, 'quantize_change_ratio': 0.001}, 'different_groups':
+{}}, 'activation_quantization': {'shared_parameters': {'enabled': False, 'quantization_type': 'symmetric', 'range_calibration': 'dynamic', 'sch
+edule_offset': 1000}, 'different_groups': {}}, 'sparse_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 10
+00}, 'different_groups': {}}, 'row_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_grou
+ps': {}}, 'head_pruning': {'shared_parameters': {'enabled': False, 'method': 'topk', 'schedule_offset': 1000}, 'different_groups': {}}, 'channe
+l_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'layer_reduction': {'en
+abled': False}}
+[2025-07-02 20:40:31,353] [INFO] [config.py:1003:print]   curriculum_enabled_legacy .... False
+[2025-07-02 20:40:31,353] [INFO] [config.py:1003:print]   curriculum_params_legacy ..... False
+[2025-07-02 20:40:31,353] [INFO] [config.py:1003:print]   data_efficiency_config ....... {'enabled': False, 'seed': 1234, 'data_sampling': {'en
+abled': False, 'num_epochs': 1000, 'num_workers': 0, 'curriculum_learning': {'enabled': False}}, 'data_routing': {'enabled': False, 'random_ltd
+': {'enabled': False, 'layer_token_lr_schedule': {'enabled': False}}}}
+[2025-07-02 20:40:31,354] [INFO] [config.py:1003:print]   data_efficiency_enabled ...... False
+[2025-07-02 20:40:31,354] [INFO] [config.py:1003:print]   dataloader_drop_last ......... False
+[2025-07-02 20:40:31,354] [INFO] [config.py:1003:print]   disable_allgather ............ False
+[2025-07-02 20:40:31,354] [INFO] [config.py:1003:print]   dump_state ................... False
+[2025-07-02 20:40:31,354] [INFO] [config.py:1003:print]   dynamic_loss_scale_args ...... None
+[2025-07-02 20:40:31,354] [INFO] [config.py:1003:print]   eigenvalue_enabled ........... False
+[2025-07-02 20:40:31,354] [INFO] [config.py:1003:print]   eigenvalue_gas_boundary_resolution  1
+[2025-07-02 20:40:31,354] [INFO] [config.py:1003:print]   eigenvalue_layer_name ........ bert.encoder.layer
+[2025-07-02 20:40:31,354] [INFO] [config.py:1003:print]   eigenvalue_layer_num ......... 0
+[2025-07-02 20:40:31,354] [INFO] [config.py:1003:print]   eigenvalue_max_iter .......... 100
+[2025-07-02 20:40:31,354] [INFO] [config.py:1003:print]   eigenvalue_stability ......... 1e-06
+[2025-07-02 20:40:31,354] [INFO] [config.py:1003:print]   eigenvalue_tol ............... 0.01
+[2025-07-02 20:40:31,354] [INFO] [config.py:1003:print]   eigenvalue_verbose ........... False
+[2025-07-02 20:40:31,354] [INFO] [config.py:1003:print]   elasticity_enabled ........... False
+[2025-07-02 20:40:31,354] [INFO] [config.py:1003:print]   flops_profiler_config ........ {
+    "enabled": false,
+    "recompute_fwd_factor": 0.0,
+    "profile_step": 1,
+    "module_depth": -1,
+    "top_modules": 1,
+    "detailed": true,
+    "output_file": null
+}
+[2025-07-02 20:40:31,354] [INFO] [config.py:1003:print]   fp16_auto_cast ............... None
+[2025-07-02 20:40:31,355] [INFO] [config.py:1003:print]   fp16_enabled ................. False
+[2025-07-02 20:40:31,355] [INFO] [config.py:1003:print]   fp16_master_weights_and_gradients  False
+[2025-07-02 20:40:31,355] [INFO] [config.py:1003:print]   global_rank .................. 0
+[2025-07-02 20:40:31,355] [INFO] [config.py:1003:print]   grad_accum_dtype ............. None
+[2025-07-02 20:40:31,355] [INFO] [config.py:1003:print]   gradient_accumulation_steps .. 2
+[2025-07-02 20:40:31,355] [INFO] [config.py:1003:print]   gradient_clipping ............ 0.0
+[2025-07-02 20:40:31,355] [INFO] [config.py:1003:print]   gradient_predivide_factor .... 1.0
+[2025-07-02 20:40:31,355] [INFO] [config.py:1003:print]   graph_harvesting ............. False
+[2025-07-02 20:40:31,355] [INFO] [config.py:1003:print]   hybrid_engine ................ enabled=False max_out_tokens=512 inference_tp_size=1 r
+elease_inference_cache=False pin_parameters=True tp_gather_partition_size=8
+[2025-07-02 20:40:31,355] [INFO] [config.py:1003:print]   initial_dynamic_scale ........ 1
+[2025-07-02 20:40:31,355] [INFO] [config.py:1003:print]   load_universal_checkpoint .... False
+[2025-07-02 20:40:31,355] [INFO] [config.py:1003:print]   loss_scale ................... 1.0
+[2025-07-02 20:40:31,355] [INFO] [config.py:1003:print]   memory_breakdown ............. False
+[2025-07-02 20:40:31,355] [INFO] [config.py:1003:print]   mics_hierarchial_params_gather  False
+[2025-07-02 20:40:31,355] [INFO] [config.py:1003:print]   mics_shard_size .............. -1
+[2025-07-02 20:40:31,356] [INFO] [config.py:1003:print]   monitor_config ............... tensorboard=TensorBoardConfig(enabled=False, output_pa
+th='', job_name='DeepSpeedJobName') comet=CometConfig(enabled=False, samples_log_interval=100, project=None, workspace=None, api_key=None, expe
+riment_name=None, experiment_key=None, online=None, mode=None) wandb=WandbConfig(enabled=False, group=None, team=None, project='deepspeed') csv
+_monitor=CSVConfig(enabled=False, output_path='', job_name='DeepSpeedJobName')
+[2025-07-02 20:40:31,356] [INFO] [config.py:1003:print]   nebula_config ................ {
+    "enabled": false,
+    "persistent_storage_path": null,
+    "persistent_time_interval": 100,
+    "num_of_version_in_retention": 2,
+    "enable_nebula_load": true,
+    "load_path": null
+}
+[2025-07-02 20:40:31,356] [INFO] [config.py:1003:print]   optimizer_legacy_fusion ...... False
+[2025-07-02 20:40:31,356] [INFO] [config.py:1003:print]   optimizer_name ............... None
+[2025-07-02 20:40:31,356] [INFO] [config.py:1003:print]   optimizer_params ............. None
+[2025-07-02 20:40:31,356] [INFO] [config.py:1003:print]   pipeline ..................... {'stages': 'auto', 'partition': 'best', 'seed_layers':
+ False, 'activation_checkpoint_interval': 0, 'pipe_partitioned': True, 'grad_partitioned': True}
+[2025-07-02 20:40:31,356] [INFO] [config.py:1003:print]   pld_enabled .................. False
+[2025-07-02 20:40:31,356] [INFO] [config.py:1003:print]   pld_params ................... False
+[2025-07-02 20:40:31,356] [INFO] [config.py:1003:print]   prescale_gradients ........... False
+[2025-07-02 20:40:31,356] [INFO] [config.py:1003:print]   scheduler_name ............... None
+[2025-07-02 20:40:31,356] [INFO] [config.py:1003:print]   scheduler_params ............. None
+[2025-07-02 20:40:31,356] [INFO] [config.py:1003:print]   seq_parallel_communication_data_type  torch.float32
+[2025-07-02 20:40:31,357] [INFO] [config.py:1003:print]   sparse_attention ............. None
+[2025-07-02 20:40:31,357] [INFO] [config.py:1003:print]   sparse_gradients_enabled ..... False
+[2025-07-02 20:40:31,357] [INFO] [config.py:1003:print]   steps_per_print .............. inf
+[2025-07-02 20:40:31,357] [INFO] [config.py:1003:print]   timers_config ................ enabled=True synchronized=True
+[2025-07-02 20:40:31,357] [INFO] [config.py:1003:print]   train_batch_size ............. 32
+[2025-07-02 20:40:31,357] [INFO] [config.py:1003:print]   train_micro_batch_size_per_gpu  4
+[2025-07-02 20:40:31,357] [INFO] [config.py:1003:print]   use_data_before_expert_parallel_  False
+[2025-07-02 20:40:31,357] [INFO] [config.py:1003:print]   use_node_local_storage ....... False
+[2025-07-02 20:40:31,357] [INFO] [config.py:1003:print]   wall_clock_breakdown ......... False
+[2025-07-02 20:40:31,357] [INFO] [config.py:1003:print]   weight_quantization_config ... None
+[2025-07-02 20:40:31,357] [INFO] [config.py:1003:print]   world_size ................... 4
+[2025-07-02 20:40:31,357] [INFO] [config.py:1003:print]   zero_allow_untested_optimizer  False
+[2025-07-02 20:40:31,357] [INFO] [config.py:1003:print]   zero_config .................. stage=3 contiguous_gradients=True reduce_scatter=True
+reduce_bucket_size=500000000 use_multi_rank_bucket_allreduce=True allgather_partitions=True allgather_bucket_size=500000000 overlap_comm=True l
+oad_from_fp32_weights=True elastic_checkpoint=False offload_param=DeepSpeedZeroOffloadParamConfig(device='none', nvme_path=None, buffer_count=5
+, buffer_size=100000000, max_in_cpu=1000000000, pin_memory=True) offload_optimizer=DeepSpeedZeroOffloadOptimizerConfig(device='none', nvme_path
+=None, buffer_count=4, pin_memory=True, pipeline_read=False, pipeline_write=False, fast_init=False, ratio=1.0) sub_group_size=1000000000 cpu_of
+fload_param=None cpu_offload_use_pin_memory=None cpu_offload=None prefetch_bucket_size=50000000 param_persistence_threshold=100000 model_persis
+tence_threshold=9223372036854775807 max_live_parameters=1000000000 max_reuse_distance=1000000000 gather_16bit_weights_on_model_save=True use_al
+l_reduce_for_fetch_params=False stage3_gather_fp16_weights_on_model_save=False ignore_unused_parameters=True legacy_stage1=False round_robin_gr
+adients=False zero_hpz_partition_size=1 zero_quantized_weights=False zero_quantized_nontrainable_weights=False zero_quantized_gradients=False m
+ics_shard_size=-1 mics_hierarchical_params_gather=False memory_efficient_linear=True pipeline_loading_checkpoint=False override_module_apply=Tr
+ue
+[2025-07-02 20:40:31,357] [INFO] [config.py:1003:print]   zero_enabled ................. True
+[2025-07-02 20:40:31,358] [INFO] [config.py:1003:print]   zero_force_ds_cpu_optimizer .. True
+[2025-07-02 20:40:31,358] [INFO] [config.py:1003:print]   zero_optimization_stage ...... 3
+[2025-07-02 20:40:31,358] [INFO] [config.py:989:print_user_config]   json = {
+    "zero_optimization": {
+        "stage": 3,
+        "offload_optimizer": {
+            "device": "none",
+            "pin_memory": true
+        },
+        "offload_param": {
+            "device": "none",
+            "pin_memory": true
+        },
+        "overlap_comm": true,
+        "contiguous_gradients": true,
+        "reduce_bucket_size": "auto",
+        "stage3_prefetch_bucket_size": "auto",
+        "stage3_param_persistence_threshold": "auto",
+        "sub_group_size": 1.000000e+09,
+        "stage3_max_live_parameters": 1.000000e+09,
+        "stage3_max_reuse_distance": 1.000000e+09,
+        "stage3_gather_16bit_weights_on_model_save": true
+    },
+    "train_batch_size": 32,
+    "train_micro_batch_size_per_gpu": 4,
+    "gradient_accumulation_steps": 2,
+    "bf16": {
+        "enabled": true
+    },
+    "steps_per_print": inf,
+    "fp16": {
+        "enabled": false
+    },
+    "zero_optimization.reduce_bucket_size": 1.677722e+07,
+    "zero_optimization.stage3_param_persistence_threshold": 4.096000e+04,
+    "zero_optimization.stage3_prefetch_bucket_size": 1.509949e+07
+}
+[2025-07-02 20:40:31,359][trainer][INFO] - NPO Trainer loaded, output_dir: ./saves/unlearn/hard_to_easy/loss/tofu_Llama-3.1-8B-Instruct_forget0
+1_NPO
+[2025-07-02 20:40:35,170] [WARNING] [engine.py:1232:_do_optimizer_sanity_check] **** You are using ZeRO with an untested optimizer, proceed wit
+h caution *****
+Parameter Offload: Total persistent parameters: 266240 in 65 params
+wandb: WARNING The `run_name` is currently set to the same value as `TrainingArguments.output_dir`. If this was not intended, please specify a
+different run name by setting the `TrainingArguments.run_name` parameter.
+  0%|                                                                                                                   | 0/10 [00:00<?, ?it/s]
+[2025-07-02 20:40:43,127][trainer.base][WARNING] - Custom evaluator can be run with this Trainer only when a single accelerator process is runn
+ing.
+[Curriculum]: Epoch 0 | Using 1/5 chunks | total samples: 8
+Training dataset updated at epoch 0
+`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+/home/public/jcheng2/miniconda3/envs/un/lib/python3.11/site-packages/torch/utils/checkpoint.py:295: FutureWarning: `torch.cpu.amp.autocast(args
+...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with torch.enable_grad(), device_autocast_ctx, torch.cpu.amp.autocast(**ctx.cpu_autocast_kwargs):  # type: ignore[attr-defined]
+/home/public/jcheng2/miniconda3/envs/un/lib/python3.11/site-packages/torch/utils/checkpoint.py:295: FutureWarning: `torch.cpu.amp.autocast(args
+...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with torch.enable_grad(), device_autocast_ctx, torch.cpu.amp.autocast(**ctx.cpu_autocast_kwargs):  # type: ignore[attr-defined]
+/home/public/jcheng2/miniconda3/envs/un/lib/python3.11/site-packages/torch/utils/checkpoint.py:295: FutureWarning: `torch.cpu.amp.autocast(args
+...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with torch.enable_grad(), device_autocast_ctx, torch.cpu.amp.autocast(**ctx.cpu_autocast_kwargs):  # type: ignore[attr-defined]
+/home/public/jcheng2/miniconda3/envs/un/lib/python3.11/site-packages/torch/utils/checkpoint.py:295: FutureWarning: `torch.cpu.amp.autocast(args
+...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with torch.enable_grad(), device_autocast_ctx, torch.cpu.amp.autocast(**ctx.cpu_autocast_kwargs):  # type: ignore[attr-defined]
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+[Curriculum]: Epoch 0 | Using 1/5 chunks | total samples: 8
+Training dataset updated at epoch 0
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+ 10%|██████████▋                                                                                                | 1/10 [00:26<03:59, 26.60s/it]
+[Curriculum]: Epoch 2 | Using 2/5 chunks | total samples: 16
+Training dataset updated at epoch 2.0
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+ 20%|█████████████████████▍                                                                                     | 2/10 [00:32<01:54, 14.26s/it]
+[Curriculum]: Epoch 3 | Using 2/5 chunks | total samples: 16
+Training dataset updated at epoch 3.0
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+ 30%|████████████████████████████████                                                                           | 3/10 [00:49<01:49, 15.64s/it]
+[Curriculum]: Epoch 4 | Using 3/5 chunks | total samples: 24
+Training dataset updated at epoch 4.0
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+ 40%|██████████████████████████████████████████▊                                                                | 4/10 [00:55<01:10, 11.67s/it]
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+{'loss': 7.9884, 'grad_norm': 122.89028550817727, 'learning_rate': 5.555555555555557e-06, 'epoch': 6.0}
+ 50%|█████████████████████████████████████████████████████▌                                                     | 5/10 [01:12<01:08, 13.67s/it]
+[Curriculum]: Epoch 6 | Using 4/5 chunks | total samples: 32
+Training dataset updated at epoch 6.0
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+ 60%|████████████████████████████████████████████████████████████████▏                                          | 6/10 [01:35<01:07, 16.77s/it]
+[Curriculum]: Epoch 6 | Using 4/5 chunks | total samples: 32
+Training dataset updated at epoch 6.0
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+ 70%|██████████████████████████████████████████████████████████████████████████▉                                | 7/10 [01:57<00:56, 18.71s/it]
+[Curriculum]: Epoch 7 | Using 4/5 chunks | total samples: 32
+Training dataset updated at epoch 7.0
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+ 80%|█████████████████████████████████████████████████████████████████████████████████████▌                     | 8/10 [02:20<00:39, 19.99s/it]
+[Curriculum]: Epoch 8 | Using 5/5 chunks | total samples: 40
+Training dataset updated at epoch 8.0
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+ 90%|████████████████████████████████████████████████████████████████████████████████████████████████▎          | 9/10 [02:43<00:20, 20.87s/it]
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+[Curriculum]: Epoch 9 | Using 5/5 chunks | total samples: 40
+Training dataset updated at epoch 9.0
+Invalidate trace cache @ step 422 and module 454: cache has only 422 modules
+{'loss': 3.8122, 'grad_norm': 62.00752777024613, 'learning_rate': 0.0, 'epoch': 9.33}
+{'train_runtime': 186.5004, 'train_samples_per_second': 2.145, 'train_steps_per_second': 0.054, 'train_loss': 5.9002948760986325, 'epoch': 9.33
+}
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 10/10 [03:06<00:00, 18.63s/it]
+wandb:
+wandb: 🚀 View run tofu-forget01-Llama-3.1-8B-Instruct-NPO-hard_to_easy-loss at: https://wandb.ai/jialicheng/Curriculum%20Unlearning/runs/tofu-
+forget01-Llama-3.1-8B-Instruct-NPO-hard_to_easy-loss
+wandb: Find logs at: wandb/run-20250702_204012-tofu-forget01-Llama-3.1-8B-Instruct-NPO-hard_to_easy-loss/logs
+wandb:
+wandb: 🚀 View run tofu-forget01-Llama-3.1-8B-Instruct-NPO-hard_to_easy-loss at: https://wandb.ai/jialicheng/Curriculum%20Unlearning/runs/tofu-
+forget01-Llama-3.1-8B-Instruct-NPO-hard_to_easy-loss
+wandb: Find logs at: wandb/run-20250702_204010-tofu-forget01-Llama-3.1-8B-Instruct-NPO-hard_to_easy-loss/logs
+wandb:
+wandb: 🚀 View run tofu-forget01-Llama-3.1-8B-Instruct-NPO-hard_to_easy-loss at: https://wandb.ai/jialicheng/Curriculum%20Unlearning/runs/tofu-
+forget01-Llama-3.1-8B-Instruct-NPO-hard_to_easy-loss
+wandb: Find logs at: wandb/run-20250702_204010-tofu-forget01-Llama-3.1-8B-Instruct-NPO-hard_to_easy-loss/logs
+[2025-07-02 20:44:24,181][trainer.base][WARNING] - Custom evaluator can be run with this Trainer only when a single accelerator process is runn
+ing.
+wandb:
+wandb: 🚀 View run tofu-forget01-Llama-3.1-8B-Instruct-NPO-hard_to_easy-loss at: https://wandb.ai/jialicheng/Curriculum%20Unlearning/runs/tofu-
+forget01-Llama-3.1-8B-Instruct-NPO-hard_to_easy-loss
+wandb: Find logs at: wandb/run-20250702_204011-tofu-forget01-Llama-3.1-8B-Instruct-NPO-hard_to_easy-loss/logs
+hard_to_easy/loss/tofu_Llama-3.1-8B-Instruct_forget01_NPO Eval Not Found
+[2025-07-02 20:44:33,330] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Warning: The cache directory for DeepSpeed Triton autotune, /home/grad/doc/2025/jcheng2/.triton/autotune, appears to be on an NFS system. While
+ this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR envir
+onment variable to a non-NFS path.
+wandb: Currently logged in as: jialicheng to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.21.0
+wandb: Run data is saved locally in /home/public/jcheng2/open-unlearning/wandb/run-20250702_204437-tofu-forget01-Llama-3.1-8B-Instruct-NPO-hard
+_to_easy-loss
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Resuming run tofu-forget01-Llama-3.1-8B-Instruct-NPO-hard_to_easy-loss
+wandb: ⭐️ View project at https://wandb.ai/jialicheng/Curriculum%20Unlearning
+wandb: 🚀 View run at https://wandb.ai/jialicheng/Curriculum%20Unlearning/runs/tofu-forget01-Llama-3.1-8B-Instruct-NPO-hard_to_easy-loss
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████████████████████████████| 4/4 [00:03<00:00,  1.03it/s]
+[2025-07-02 20:44:43,542][model][INFO] - Setting pad_token as eos token: <|eot_id|>
+[2025-07-02 20:44:43,546][evaluator][INFO] - Evaluations stored in the experiment directory: saves/unlearn/hard_to_easy/loss/tofu_Llama-3.1-8B-
+Instruct_forget01_NPO/evals
+[2025-07-02 20:44:43,547][evaluator][INFO] - ***** Running TOFU evaluation suite *****
+[2025-07-02 20:44:43,547][evaluator][INFO] - Fine-grained evaluations will be saved to: saves/unlearn/hard_to_easy/loss/tofu_Llama-3.1-8B-Instr
+uct_forget01_NPO/evals/TOFU_EVAL.json
+[2025-07-02 20:44:43,547][evaluator][INFO] - Aggregated evaluations will be summarised in: saves/unlearn/hard_to_easy/loss/tofu_Llama-3.1-8B-In
+struct_forget01_NPO/evals/TOFU_SUMMARY.json
+[2025-07-02 20:44:44,262][metrics][INFO] - Loading evaluations from saves/eval/tofu_Llama-3.1-8B-Instruct_retain99/TOFU_EVAL.json
+[2025-07-02 20:44:44,276][metrics][INFO] - Evaluating forget_Q_A_PARA_Prob
+Calculating loss: 100%|██████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:01<00:00,  1.40it/s]
+Evaluated 40 examples
+[2025-07-02 20:44:46,076][metrics][INFO] - Loading evaluations from saves/eval/tofu_Llama-3.1-8B-Instruct_retain99/TOFU_EVAL.json
+[2025-07-02 20:44:46,092][metrics][INFO] - Evaluating forget_Q_A_PERT_Prob
+Calculating loss: 100%|██████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:04<00:00,  2.21s/it]
+Evaluated 40 examples
+[2025-07-02 20:44:50,507][metrics][INFO] - Loading evaluations from saves/eval/tofu_Llama-3.1-8B-Instruct_retain99/TOFU_EVAL.json
+[2025-07-02 20:44:50,515][metrics][INFO] - Evaluating forget_truth_ratio
+[2025-07-02 20:44:50,516][metrics][INFO] - Loading evaluations from saves/eval/tofu_Llama-3.1-8B-Instruct_retain99/TOFU_EVAL.json
+[2025-07-02 20:44:50,523][metrics][INFO] - Evaluating forget_quality
+[2025-07-02 20:44:50,525][evaluator][INFO] - Result for metric forget_quality:  0.5786001416508443
+[2025-07-02 20:44:50,840][metrics][INFO] - Evaluating forget_Q_A_Prob
+Calculating loss: 100%|██████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:00<00:00,  2.34it/s]
+Evaluated 40 examples
+[2025-07-02 20:44:51,696][evaluator][INFO] - Result for metric forget_Q_A_Prob: 0.23521137973293663
+[2025-07-02 20:44:51,987][metrics][INFO] - Evaluating forget_Q_A_ROUGE
+Calculating text similarity:   0%|                                                                                       | 0/2 [00:00<?, ?it/s]
+Starting from v4.46, the `logits` model output will have the same type as the model (except at train time, where it will always be FP32)
+Calculating text similarity: 100%|███████████████████████████████████████████████████████████████████████████████| 2/2 [00:05<00:00,  2.53s/it]
+Evaluated 40 examples
+[2025-07-02 20:44:57,043][evaluator][INFO] - Result for metric forget_Q_A_ROUGE:        0.5166069455534334
+[2025-07-02 20:44:57,357][metrics][INFO] - Evaluating retain_Q_A_Prob
+Calculating loss: 100%|████████████████████████████████████████████████████████████████████████████████████████| 13/13 [00:06<00:00,  1.89it/s]
+Evaluated 400 examples
+[2025-07-02 20:45:04,601][metrics][INFO] - Evaluating retain_Q_A_ROUGE
+Calculating text similarity: 100%|█████████████████████████████████████████████████████████████████████████████| 13/13 [00:30<00:00,  2.31s/it]
+Evaluated 400 examples
+[2025-07-02 20:45:35,060][metrics][INFO] - Evaluating retain_Q_A_PARA_Prob
+Calculating loss: 100%|████████████████████████████████████████████████████████████████████████████████████████| 13/13 [00:07<00:00,  1.72it/s]
+Evaluated 400 examples
+[2025-07-02 20:45:43,014][metrics][INFO] - Evaluating retain_Q_A_PERT_Prob
+Calculating loss: 100%|████████████████████████████████████████████████████████████████████████████████████████| 13/13 [00:37<00:00,  2.86s/it]
+Evaluated 400 examples
+[2025-07-02 20:46:20,239][metrics][INFO] - Evaluating retain_Truth_Ratio
+[2025-07-02 20:46:20,631][metrics][INFO] - Evaluating ra_Q_A_Prob
+Calculating loss: 100%|██████████████████████████████████████████████████████████████████████████████████████████| 4/4 [00:01<00:00,  3.26it/s]
+Evaluated 100 examples
+[2025-07-02 20:46:22,190][metrics][INFO] - Evaluating ra_Q_A_PERT_Prob
+Calculating loss: 100%|██████████████████████████████████████████████████████████████████████████████████████████| 4/4 [00:03<00:00,  1.12it/s]
+Evaluated 100 examples
+[2025-07-02 20:46:25,749][metrics][INFO] - Evaluating ra_Q_A_Prob_normalised
+[2025-07-02 20:46:26,032][metrics][INFO] - Evaluating ra_Q_A_ROUGE
+Calculating text similarity: 100%|███████████████████████████████████████████████████████████████████████████████| 4/4 [00:05<00:00,  1.30s/it]
+Evaluated 100 examples
+[2025-07-02 20:46:31,229][metrics][INFO] - Skipping ra_Truth_Ratio's precompute ra_Q_A_Prob, already evaluated.
+[2025-07-02 20:46:31,229][metrics][INFO] - Skipping ra_Truth_Ratio's precompute ra_Q_A_PERT_Prob, already evaluated.
+[2025-07-02 20:46:31,229][metrics][INFO] - Evaluating ra_Truth_Ratio
+[2025-07-02 20:46:31,503][metrics][INFO] - Evaluating wf_Q_A_Prob
+Calculating loss: 100%|██████████████████████████████████████████████████████████████████████████████████████████| 4/4 [00:01<00:00,  3.18it/s]
+Evaluated 117 examples
+[2025-07-02 20:46:33,162][metrics][INFO] - Evaluating wf_Q_A_PERT_Prob
+Calculating loss: 100%|██████████████████████████████████████████████████████████████████████████████████████████| 4/4 [00:03<00:00,  1.05it/s]
+Evaluated 117 examples
+[2025-07-02 20:46:36,966][metrics][INFO] - Evaluating wf_Q_A_Prob_normalised
+[2025-07-02 20:46:37,259][metrics][INFO] - Evaluating wf_Q_A_ROUGE
+Calculating text similarity: 100%|███████████████████████████████████████████████████████████████████████████████| 4/4 [00:07<00:00,  1.76s/it]
+Evaluated 117 examples
+[2025-07-02 20:46:44,308][metrics][INFO] - Skipping wf_Truth_Ratio's precompute wf_Q_A_Prob, already evaluated.
+[2025-07-02 20:46:44,308][metrics][INFO] - Skipping wf_Truth_Ratio's precompute wf_Q_A_PERT_Prob, already evaluated.
+[2025-07-02 20:46:44,308][metrics][INFO] - Evaluating wf_Truth_Ratio
+[2025-07-02 20:46:44,309][metrics][INFO] - Evaluating model_utility
+[2025-07-02 20:46:44,310][evaluator][INFO] - Result for metric model_utility:   0.6334401231068554
+[2025-07-02 20:46:45,050][metrics][INFO] - Loading evaluations from saves/eval/tofu_Llama-3.1-8B-Instruct_retain99/TOFU_EVAL.json
+[2025-07-02 20:46:45,068][metrics][INFO] - Evaluating mia_min_k
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:00<00:00,  3.06it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:00<00:00,  3.13it/s]
+[2025-07-02 20:46:46,365][metrics][INFO] - Loading evaluations from saves/eval/tofu_Llama-3.1-8B-Instruct_retain99/TOFU_EVAL.json
+[2025-07-02 20:46:46,372][metrics][INFO] - Evaluating privleak
+[2025-07-02 20:46:46,373][evaluator][INFO] - Result for metric privleak:        -53.249999989349995
+[2025-07-02 20:46:46,706][metrics][INFO] - Evaluating extraction_strength
+Calculating ES: 100%|████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:00<00:00,  2.95it/s]
+Evaluated 40 examples
+[2025-07-02 20:46:47,384][evaluator][INFO] - Result for metric extraction_strength:     0.18963939422984302
+wandb:
+wandb: 🚀 View run tofu-forget01-Llama-3.1-8B-Instruct-NPO-hard_to_easy-loss at: https://wandb.ai/jialicheng/Curriculum%20Unlearning/runs/tofu-
+forget01-Llama-3.1-8B-Instruct-NPO-hard_to_easy-loss
+wandb: Find logs at: wandb/run-20250702_204437-tofu-forget01-Llama-3.1-8B-Instruct-NPO-hard_to_easy-loss/logs
+hard_to_easy/prob/tofu_Llama-3.1-8B-Instruct_forget01_NPO Model Not Found
+[2025-07-02 20:46:52,171] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Warning: The cache directory for DeepSpeed Triton autotune, /home/grad/doc/2025/jcheng2/.triton/autotune, appears to be on an NFS system. While
+ this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR envir
+onment variable to a non-NFS path.
+W0702 20:46:54.123000 139724314752832 torch/distributed/run.py:779]
+W0702 20:46:54.123000 139724314752832 torch/distributed/run.py:779] *****************************************
+W0702 20:46:54.123000 139724314752832 torch/distributed/run.py:779] Setting OMP_NUM_THREADS environment variable for each process to be 1 in de
+fault, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed.
+W0702 20:46:54.123000 139724314752832 torch/distributed/run.py:779] *****************************************
+[2025-07-02 20:46:59,230] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Warning: The cache directory for DeepSpeed Triton autotune, /home/grad/doc/2025/jcheng2/.triton/autotune, appears to be on an NFS system. While
+ this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR envir
+onment variable to a non-NFS path.
+[2025-07-02 20:46:59,526] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-07-02 20:46:59,791] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Warning: The cache directory for DeepSpeed Triton autotune, /home/grad/doc/2025/jcheng2/.triton/autotune, appears to be on an NFS system. While
+ this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR envir
+onment variable to a non-NFS path.
+[2025-07-02 20:46:59,965] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Warning: The cache directory for DeepSpeed Triton autotune, /home/grad/doc/2025/jcheng2/.triton/autotune, appears to be on an NFS system. While
+ this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR envir
+onment variable to a non-NFS path.
+Warning: The cache directory for DeepSpeed Triton autotune, /home/grad/doc/2025/jcheng2/.triton/autotune, appears to be on an NFS system. While
+ this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR envir
+onment variable to a non-NFS path.
+wandb: Currently logged in as: jialicheng to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.21.0
+wandb: Run data is saved locally in /home/public/jcheng2/open-unlearning/wandb/run-20250702_204702-tofu-forget01-Llama-3.1-8B-Instruct-NPO-hard
+_to_easy-prob
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run tofu-forget01-Llama-3.1-8B-Instruct-NPO-hard_to_easy-prob
+wandb: ⭐️ View project at https://wandb.ai/jialicheng/Curriculum%20Unlearning
+wandb: 🚀 View run at https://wandb.ai/jialicheng/Curriculum%20Unlearning/runs/tofu-forget01-Llama-3.1-8B-Instruct-NPO-hard_to_easy-prob
+
