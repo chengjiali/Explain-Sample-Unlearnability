@@ -75,7 +75,7 @@ def wandb_setup(cfg):
 
 def get_scores_ig_activations(model, graph, dataloader, metric, steps=5):
 
-    scores = torch.zeros((graph.n_forward, graph.n_backward), device='cpu', dtype=model.cfg.dtype)    
+    scores = torch.zeros((graph.n_forward, graph.n_backward), device='cuda', dtype=model.cfg.dtype)    
     
     total_items = 0
     for batch in tqdm(dataloader):
@@ -398,21 +398,18 @@ def main(cfg: DictConfig):
     data_name, model_name, split, unlearn_method, hardness = task_name.split('_')
 
     # Dataset
+    order = pd.read_csv('../sample_difficulty/tofu/loss.csv')
+    order = order[order.method == unlearn_method]['order'].tolist()
     if hardness == 'easy':
-        with open(f'../sample_difficulty/{data_name}/{unlearn_method}_easy.txt') as f:
-            subset_samples = f.read()
-            subset_samples = [int(i) for i in subset_samples.split(',')]
-
+        subset_samples = order[-50:]
     else:
-        with open(f'../sample_difficulty/{data_name}/{unlearn_method}_hard.txt') as f:
-            subset_samples = f.read()
-            subset_samples = [int(i) for i in subset_samples.split(',')]
+        subset_samples = order[:50]
 
     print(f'Using {hardness.title()} samples', subset_samples)
 
 
     if data_name == 'tofu':
-        hf_args = {"name": split, 'path': 'locuslab/TOFU', 'split': 'train'}
+        hf_args = {"name": 'retain90', 'path': 'locuslab/TOFU', 'split': 'train'}
         dataset = QADataset(
             hf_args, template_args, tokenizer, max_length=512, predict_with_generate=False)
         collator = DataCollatorForSupervisedDataset(tokenizer, padding_side="right", index="index")
@@ -433,6 +430,16 @@ def main(cfg: DictConfig):
         collator = DataCollatorForSupervisedDataset(tokenizer, padding_side="left",)
 
     if data_name == 'tofu':
+    #     subset_samples = [ 758, 1380, 1398, 3513, 1097, 2348, 1222, 1873, 3295, 3160, 2564,
+    #    1304,  897, 2930,  394, 1144, 1944, 1828, 3500, 1068, 3296,  778,
+    #    2342, 2211, 1265, 1811,  502, 2605, 2296, 1840, 3312, 1677, 1407,
+    #    2322, 1485,  432,  794,  651, 2547, 2964,  619,  789,   93, 2152,
+    #    1716, 3398,  312, 2839,  682, 1008,  806,  222,  760, 2248, 1554,
+    #    3106, 3557, 2208,  429, 1596, 3118, 3591, 2491, 3425, 1149,  485,
+    #    1367, 2162, 1440, 2531,   17, 2249,  840,  873, 2776, 2002, 2262,
+    #    1965, 3335, 2784, 2715, 3584,  473, 3449, 1929,  128, 3343, 1203,
+    #    1134, 1835, 1698, 1060,  950,  210,  750, 2832, 1119,  146, 3535,
+    #     756]
         dataset.data = dataset.data.select(subset_samples)
     elif data_name == 'wmdp':
         dataset.chunks = [dataset.chunks[i] for i in subset_samples]
@@ -470,7 +477,8 @@ def main(cfg: DictConfig):
         raise NotImplementedError
 
     # Find circuits on both the original model and the unlearned model
-    for ori_or_unlearn in ['original', 'unlearn']:
+    # Ignore unlearn --> does not work
+    for ori_or_unlearn in ['original', 'unlearn'][:1]:
         # if os.path.exists(f"saves/circuit/{ori_or_unlearn}/{task_name}.json"):
         #     continue
 
@@ -502,6 +510,7 @@ def main(cfg: DictConfig):
         g = Graph.from_model(model)
         scores = get_scores_ig_activations(model, g, data_loader, metric_fn, steps=5)
         g.to_json(f"saves/circuit/{ori_or_unlearn}/{task_name}.json")
+        # g.to_json(f"saves/circuit/{ori_or_unlearn}/{task_name.replace('forget10', 'retain90')}.json")
 
         # for topn in [100, 200, 300, 400]:
         #     if os.path.exists(f"saves/circuit/{ori_or_unlearn}/{cfg.get('task_name')}_top{topn}_loss.csv"):

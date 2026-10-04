@@ -244,7 +244,6 @@ def compute_mrd(model, tokenizer, batch, **kwargs):
         Pt_perturb = compute_P(probs_perturb)
         one_MRD += compute_MRD(Pt,Pt_perturb)
     MRD.append(min(abs(one_MRD/K),2))
-    print(MRD)
 
     MRD_avg = 0
     for i in MRD:
@@ -276,11 +275,9 @@ class EvaluatorComputeSampleDifficulty:
         # self.collator = DataCollatorForSupervisedDataset(self.tokenizer, padding_side="left",)
 
         if dataset_name == 'tofu':
-            # hf_args = {"name": self.data_split, 'path': 'locuslab/TOFU', 'split': 'train'}
-            hf_args = {'path': 'locuslab/TOFU', 'split': 'train'}
+            hf_args = {"name": self.data_split, 'path': 'locuslab/TOFU', 'split': 'train'}
             dataset = QADataset(
                 hf_args, self.template_args, self.tokenizer, max_length=512, predict_with_generate=False)
-            dataset.data = dataset.data.select(range(2700, 3600))
             self.collator = DataCollatorForSupervisedDataset(self.tokenizer, padding_side="right", index="index")
 
         elif dataset_name == 'muse':
@@ -323,7 +320,7 @@ class EvaluatorComputeSampleDifficulty:
 
         logger.info(f"***** Computing forget set sample difficulty *****")
         for metric_name, (metric_fn, dataset) in self.metrics.items():
-            path = os.path.join(output_dir, f'{metric_name}_4.pt')
+            path = os.path.join(output_dir, f'{metric_name}.pt')
             # if os.path.exists(path):
             #     continue
 

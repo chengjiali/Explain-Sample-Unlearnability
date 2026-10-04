@@ -20,10 +20,11 @@ import torch
 import torch.nn.functional as F
 
 def vectorize_circuit(graph):
-    edge = graph.in_graph.clone()
-    edge = edge.int()[graph.real_edge_mask]
+    mask = graph.real_edge_mask
+    in_graph = graph.in_graph.clone()[mask].bool()
+    scores = graph.scores.clone()[mask].float()
+    return scores * in_graph.float()
 
-    return edge
     
 def cosine_sim(a: torch.Tensor, b: torch.Tensor, eps: float = 1e-12) -> torch.Tensor:
     """
@@ -73,7 +74,8 @@ def anchored_unlearnability_score(
 
 def get_scores_ig_activations(model, graph, dataloader, metric, steps=5, quiet=False):
 
-    scores = torch.zeros((graph.n_forward, graph.n_backward), device='cpu', dtype=model.cfg.dtype)    
+    # scores = torch.zeros((graph.n_forward, graph.n_backward), device='cpu', dtype=model.cfg.dtype)    
+    scores = torch.zeros((graph.n_forward, graph.n_backward), device='cuda', dtype=model.cfg.dtype)    
     
     total_items = 0
     for batch in tqdm(dataloader):
@@ -231,7 +233,7 @@ def main(cfg: DictConfig):
         os.makedirs(f"saves/circuit/difficulty/{task_name}", exist_ok=True)
         g.to_json(f"saves/circuit/difficulty/{task_name}/{i}.json")
 
-    get_score(unlearn_method)
+    # get_score(unlearn_method)
 
 
 def get_score(m):
@@ -249,16 +251,19 @@ def get_score(m):
 
     res = []
     for i in trange(4000):
-        if i >= 3600:
+        if os.path.exists(f'saves/circuit/difficulty/tofu_Llama-3.2-1B-Instruct_forget10_{m}/{i}.pt'):
             continue
+
         g = Graph.from_json(f'saves/circuit/difficulty/tofu_Llama-3.2-1B-Instruct_forget10_{m}/{i}.json')
         g.apply_greedy(topn)
+
         q = vectorize_circuit(g)
+        torch.save(q, f'saves/circuit/difficulty/tofu_Llama-3.2-1B-Instruct_forget10_{m}/{i}.pt')
 
         score = anchored_unlearnability_score(q, easy, hard)   
         res.append(score.item())
 
-    with open('open-unlearning/saves/circuit/difficulty/tofu_Llama-3.2-1B-Instruct_forget10_GradDiff/all2.txt', 'w') as f:
+    with open(f'saves/circuit/difficulty/tofu_Llama-3.2-1B-Instruct_forget10_{m}/all.txt', 'w') as f:
         f.write('\n'.join([str(i) for i in res]))
 
 
